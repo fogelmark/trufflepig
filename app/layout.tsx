@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scrollbar-hide scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-white">
       <body className={`${inter.className} antialiased`}>
         <Header />
         {children}

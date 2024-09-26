@@ -10,10 +10,13 @@ const config: Config = {
     extend: {
       colors: {},
       backgroundImage: {
-        "hero-pattern": "url(/artist.jpg)",
+        "hero-pattern": "url(/images/artist.jpg)",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+    require('tailwind-scrollbar-hide'),
+  ],
 }
 export default config

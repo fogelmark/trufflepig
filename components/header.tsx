@@ -13,19 +13,19 @@ export function Header() {
   return (
     <motion.header
       style={{ backgroundColor, boxShadow }}
-      className="sticky top-0 z-20 flex justify-between px-4 py-6 transition-all duration-300"
+      className="sticky top-0 z-20 flex justify-between items-center px-6 py-6 transition-all duration-300"
     >
       <motion.span
         style={{ color: textColor }}
-        className={`${archivo_black.className} text-2xl tracking-wide`}
+        className={`${archivo_black.className} text-4xl -tracking-widest`}
       >
         trufflepig.
       </motion.span>
       <nav>
-        <ul className="flex space-x-4">
-          <motion.li style={{ color: textColor }} className="text-lg">Home</motion.li>
-          <motion.li style={{ color: textColor }} className="text-lg">About</motion.li>
-          <motion.li style={{ color: textColor }} className="text-lg">Contact</motion.li>
+        <ul className="flex gap-4">
+          <motion.li style={{ color: textColor }} className="font-semibold uppercase">Home</motion.li>
+          <motion.li style={{ color: textColor }} className="font-semibold uppercase">About</motion.li>
+          <motion.li style={{ color: textColor }} className="font-semibold uppercase">Contact</motion.li>
         </ul>
       </nav>
     </motion.header>
