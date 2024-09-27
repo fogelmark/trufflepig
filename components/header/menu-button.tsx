@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction } from "react";
 import { motion, MotionValue } from "framer-motion";
-import Hamburger from "hamburger-react";
+import { Spiral as Hamburger } from "hamburger-react";
 
 type MenuButtonProps = {
   isOpen: boolean;

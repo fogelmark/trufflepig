@@ -1,4 +1,3 @@
-export * from "@/components/header/header";
 export * from "@/components/hero";
-export * from "@/components/header/logo";
 export * from "@/components/footer";
+export * from "@/components/header";
