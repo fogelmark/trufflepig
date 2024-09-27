@@ -1,11 +1,12 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { archivo_black } from "@/lib/fonts"
 import { Spiral as Hamburger } from "hamburger-react"
 import { useMediaQuery } from "usehooks-ts"
-import { useOpenContext } from "@/lib/hooks"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { Logo } from "./logo"
+import { MenuButton } from "./menu-button"
 
 const fadeInOut = {
   initial: { opacity: 0 },
@@ -14,12 +15,43 @@ const fadeInOut = {
   transition: { duration: 0.3 },
 }
 
+// const variants = {
+//   open: { opacity: 1, y: 0 },
+//   closed: { opacity: 0, y: 20 },
+// }
+
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 }
+    }
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 }
+    }
+  }
+};
+
+const listVariants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
+};
+
 export function Header() {
   const { scrollY } = useScroll()
-  const matches = useMediaQuery("(min-width: 768px)")
-  const { isOpen, setOpen } = useOpenContext()
+  const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
+  const [isOpen, setOpen] = useState(false)
 
-  if (matches && isOpen) {
+  if (mediaQueryMatches && isOpen) {
     setOpen(false)
   }
 
@@ -48,20 +80,8 @@ export function Header() {
       style={{ backgroundColor, boxShadow, borderColor }}
       className={classes.header}
     >
-      <motion.span
-        {...fadeInOut}
-        style={{ color: textColor }}
-        className={cn(archivo_black.className, "text-4xl -tracking-widest")}
-      >
-        brand.
-      </motion.span>
-
-      <motion.div
-        className={cn("z-10 hidden max-md:block", { "!text-black": isOpen })}
-        style={{ color: textColor }}
-      >
-        <Hamburger toggled={isOpen} toggle={setOpen} />
-      </motion.div>
+      <Logo textColor={textColor} />
+      <MenuButton isOpen={isOpen} setOpen={setOpen} textColor={textColor} />
 
       <motion.nav
         {...fadeInOut}
@@ -71,22 +91,39 @@ export function Header() {
           "max-md:hidden": !isOpen,
         })}
       >
-        <ul
+        <motion.ul
+          variants={listVariants}
           className={cn({
             "flex flex-col items-center gap-4 text-4xl": isOpen,
-            "flex gap-4": !isOpen,
+            hidden: !isOpen,
           })}
         >
           {["Home", "About", "Contact"].map((item) => (
             <motion.li
               key={item}
+              animate={isOpen ? "open" : "closed"}
+              variants={variants}
               style={{ color: textColor }}
               className={cn(classes.li, { "!text-black": isOpen })}
             >
               {item}
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
+        {!isOpen && (
+          <ul className="flex gap-4">
+            {["Home", "About", "Contact"].map((item) => (
+              <motion.li
+                {...fadeInOut}
+                key={item}
+                className={classes.li}
+                style={{ color: textColor }}
+              >
+                {item}
+              </motion.li>
+            ))}
+          </ul>
+        )}
       </motion.nav>
     </motion.header>
   )
