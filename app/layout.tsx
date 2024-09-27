@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { inter, poppins } from "@/lib/fonts"
+import { inter } from "@/lib/fonts"
 import { Footer, Header } from "@/components"
+import { OpenContextProvider } from "@/contexts/open-provider"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,11 +15,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scrollbar-hide scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-white">
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-500 scrollbar-hide"
+    >
       <body className={`${inter.className} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+        <OpenContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </OpenContextProvider>
       </body>
     </html>
   )

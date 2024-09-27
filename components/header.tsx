@@ -2,14 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { archivo_black } from "@/lib/fonts"
-import { useState } from "react"
 import { Spiral as Hamburger } from "hamburger-react"
 import { useMediaQuery } from "usehooks-ts"
+import { useOpenContext } from "@/lib/hooks"
 
 export function Header() {
-  const [isOpen, setOpen] = useState(false)
   const { scrollY } = useScroll()
-  const matches = useMediaQuery('(min-width: 768px)')
+  const matches = useMediaQuery("(min-width: 768px)")
+  const { isOpen, setOpen } = useOpenContext()
 
   if (matches && isOpen) {
     setOpen(false)
@@ -58,7 +58,7 @@ export function Header() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className={`${isOpen ? "flex fixed inset-0 h-full w-full items-center justify-center bg-white" : "max-md:hidden"}`}
+        className={`${isOpen ? "fixed inset-0 flex h-full w-full items-center justify-center bg-white" : "max-md:hidden"}`}
       >
         <ul
           className={`${isOpen ? "flex flex-col items-center gap-4 text-4xl" : "flex gap-4"}`}
