@@ -1,6 +1,6 @@
 import { OpenContext } from "@/contexts/open-provider"
 import { useScroll, useTransform } from "framer-motion"
-import { useContext } from "react"
+import { MutableRefObject, useContext, useEffect, useRef } from "react"
 
 export function useOpenContext() {
   const context = useContext(OpenContext)
@@ -10,6 +10,17 @@ export function useOpenContext() {
   }
   return context
 }
+
+export const useDimensions = (ref: any) => {
+  const dimensions = useRef({ width: 0, height: 0 });
+
+  useEffect(() => {
+    dimensions.current.width = ref.current.offsetWidth;
+    dimensions.current.height = ref.current.offsetHeight;
+  }, []);
+
+  return dimensions.current;
+};
 
 export function useHeaderStyles() {
   const { scrollY } = useScroll()
