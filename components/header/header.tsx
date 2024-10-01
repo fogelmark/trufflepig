@@ -8,7 +8,8 @@ import { useHeaderStyles } from "@/lib/hooks"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
-  const { textColor, boxShadow, borderColor, backgroundColor } = useHeaderStyles()
+  const { textColor, boxShadow, borderColor, backgroundColor } =
+    useHeaderStyles()
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
 
   if (mediaQueryMatches && isOpen) {
