@@ -37,5 +37,5 @@ export function Nav(props: NavProps) {
 }
 
 const classes = {
-  li: "font-semibold lowercase",
+  li: "lowercase",
 }
