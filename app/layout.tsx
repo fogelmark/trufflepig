@@ -18,7 +18,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-500 scrollbar-hide"
+      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-400"
     >
       <body className={`${inter.className} antialiased`}>
         <OpenContextProvider>
