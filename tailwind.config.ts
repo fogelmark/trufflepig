@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {},
       backgroundImage: {
-        "hero-pattern": "url(/images/artist.jpg)",
+        "hero-pattern": "url(/images/artist.webp)",
       },
     },
   },

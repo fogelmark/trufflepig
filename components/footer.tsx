@@ -1,7 +1,3 @@
-"use client";
-
-import { Icons } from "./header";
-
 export function Footer() {
   return (
     <footer className="border-t border-black/10 px-10">

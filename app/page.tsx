@@ -1,12 +1,12 @@
 import { Hero } from "@/components"
+// import Content from "@/components/parallax-content"
+import React from "react"
 
 export default function Home() {
   return (
-    <div className="h-[2000px]">
+    <div className="">
       <Hero />
-      <main className="">
-        <h1>Hej</h1>
-      </main>
+      {/* <ParallaxContent /> */}
     </div>
   )
 }
