@@ -19,7 +19,7 @@ export function Header() {
   return (
     <motion.header
       style={{ backgroundColor, boxShadow, borderColor }}
-      className="h-[100px] sticky top-0 z-10 flex items-center justify-between border-b border-gray-300 px-10 py-6 transition-all duration-300"
+      className="h-[100px] fixed w-full top-0 z-10 flex items-center justify-between border-b border-gray-300 px-10 py-6 transition-all duration-300"
     >
       <Logo textColor={textColor} />
       <Nav isOpen={isOpen} textColor={textColor} />
