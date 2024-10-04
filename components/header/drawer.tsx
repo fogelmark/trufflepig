@@ -14,7 +14,14 @@ const menuItems = [
   { text: "Home" },
   { text: "About" },
   { text: "Contact" },
-  { text: "Social Media", icons: [<Instagram />, <Youtube />, <Facebook />] },
+  {
+    text: "Social Media",
+    icons: [
+      <Instagram key="Instagram" />,
+      <Youtube key="Youtube" />,
+      <Facebook key="Facebook" />,
+    ],
+  },
 ]
 
 export function Drawer(props: DrawerProps) {

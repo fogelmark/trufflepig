@@ -4,5 +4,3 @@ export const fadeInOut = {
   exit: { opacity: 0 },
   transition: { duration: 0.3 },
 }
-
-

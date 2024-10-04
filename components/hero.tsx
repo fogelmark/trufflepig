@@ -1,19 +1,17 @@
 "use client"
 
-import Image from "next/image"
-import artist from "@/public/images/artist.webp"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { cn } from "@/lib/utils"
 
 export function Hero() {
   const { scrollY } = useScroll()
   const SECTION_HEIGHT = 500
 
-  const opacity = useTransform(
-    scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 250],
-    [1, 0],
-  )
+  // const opacity = useTransform(
+  //   scrollY,
+  //   [SECTION_HEIGHT, SECTION_HEIGHT + 250],
+  //   [1, 0],
+  // )
+
   const backgroundSize = useTransform(
     scrollY,
     [0, SECTION_HEIGHT + 250],
