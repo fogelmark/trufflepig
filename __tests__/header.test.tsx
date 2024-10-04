@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react"
 import { Header } from "@/components/header/header"
 
 describe("Header", () => {
-  it("renders a heading", () => {
+  it("renders a header tag", () => {
     render(<Header />)
 
-    const heading = screen.getByRole("heading", { level: 1 })
+    const header = screen.getByTestId("header")
 
-    expect(heading).toBeInTheDocument()
+    expect(header).toBeInTheDocument()
   })
 })

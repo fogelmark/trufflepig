@@ -13,7 +13,7 @@ export function Nav(props: NavProps) {
 
   return (
     <motion.nav {...fadeInOut} className="cursor-pointer">
-      <Drawer isOpen={isOpen} className={classes.li} />
+      {/* <Drawer isOpen={isOpen} className={classes.li} /> */}
       {!isOpen && (
         <ul className="flex items-center gap-4">
           {["Home", "About", "Contact"].map((item) => (
