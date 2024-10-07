@@ -5,11 +5,11 @@ import React from "react"
 
 export default function Home() {
   return (
-    <main>
+    <main data-testid="main">
       <Hero />
-      <div className="flex flex-col gap-36 py-36 px-28">
-      <IntroText />
-      {/* <ParallaxContent /> */}
+      <div className="flex flex-col gap-36 px-6 md:px-28 py-36">
+        <IntroText />
+        <ParallaxContent />
       </div>
     </main>
   )
