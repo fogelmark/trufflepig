@@ -1,31 +1,28 @@
-import { cn } from "@/lib/utils"
 import { drawerVariants, itemVariants } from "@/lib/variants"
 import { motion } from "framer-motion"
-import Facebook from "@/public/svg/facebook.svg"
 import Instagram from "@/public/svg/instagram.svg"
+import Facebook from "@/public/svg/facebook.svg"
 import Youtube from "@/public/svg/youtube.svg"
 
 type DrawerProps = {
   isOpen: boolean
-  className?: string
 }
 
 const menuItems = [
-  { text: "Home" },
   { text: "About" },
   { text: "Contact" },
   {
     text: "Social Media",
     icons: [
-      <Instagram key="Instagram" />,
-      <Youtube key="Youtube" />,
-      <Facebook key="Facebook" />,
+      { Component: Instagram, alt: "Instagram" },
+      { Component: Youtube, alt: "Instagram" },
+      { Component: Facebook, alt: "Instagram" },
     ],
   },
 ]
 
 export function Drawer(props: DrawerProps) {
-  const { isOpen, className } = props
+  const { isOpen } = props
 
   return (
     <motion.ul
@@ -38,12 +35,14 @@ export function Drawer(props: DrawerProps) {
         <motion.li
           key={index}
           variants={itemVariants}
-          className={cn(className, "flex items-center gap-2 text-4xl")}
+          className="flex items-center gap-2 text-4xl lowercase"
         >
           {item.icons ? (
             <div className="flex gap-4">
-              {item.icons.map((icon, iconIndex) => (
-                <div key={iconIndex}>{icon}</div>
+              {item.icons.map((icon, index) => (
+                <div key={index}>
+                  {<icon.Component />}
+                </div>
               ))}
             </div>
           ) : (

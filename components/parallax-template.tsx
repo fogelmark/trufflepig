@@ -1,40 +1,65 @@
-// "use client"
+"use client"
 
-// import { motion, useScroll, useTransform } from "framer-motion"
-// import React, { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import React, { useRef } from "react"
 
-// export default function ParallaxContent() {
-//   const ref = useRef(null)
-//   const { scrollYProgress } = useScroll({ target: ref }) // Track scroll for this component
+export default function ParallaxContent() {
+  return (
+    <div className="grid grid-cols-1 gap-6 md:px-6">
+      {content.map((item, index) => (
+        <InViewItem key={index} item={item} />
+      ))}
+    </div>
+  )
+}
 
-//   // Create a y-axis transform for the parallax effect
-//   const y = useTransform(scrollYProgress, [0, 1], [0, 0]) // Adjust the values for a stronger or softer effect
+interface ContentItem {
+  item: {
+    type: string
+    src?: string
+  }
+}
 
-//   return (
-//     <motion.div
-//       ref={ref}
-//       style={{ y }} // Apply the parallax transform to this div
-//       className="relative flex items-center justify-center px-6"
-//     >
-//       <p>
-//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-//         corporis maiores iusto ut quod suscipit beatae molestias, omnis aliquam
-//         tempore minus iste doloremque odio cupiditate optio quibusdam vero natus
-//         tenetur? Asperiores officiis ut officia non reiciendis provident id
-//         soluta ipsam, magni unde vel, perferendis culpa quaerat fuga hic! Optio
-//         nesciunt quasi quis illo blanditiis rem odit, sint debitis recusandae
-//         quod. Corporis iure iste quidem, esse asperiores officia suscipit
-//         expedita sed tempora minus quam similique facere perferendis soluta
-//         labore ipsa dolore sint et corrupti sapiente veritatis quibusdam,
-//         quisquam reprehenderit? Numquam, veniam? Molestiae, amet sequi culpa,
-//         aliquid sed pariatur dignissimos beatae incidunt nihil quis quas
-//         inventore, hic doloremque nulla? Alias sunt officiis porro, beatae ex,
-//         nobis dolorum perferendis tempora rerum repudiandae similique. Ut
-//         cupiditate accusamus quae, excepturi sapiente rem quaerat molestias esse
-//         perferendis sint ipsam aspernatur praesentium consectetur inventore
-//         ratione ducimus incidunt suscipit cum odit, alias eos. Voluptatum rerum
-//         quidem commodi illo.
-//       </p>
-//     </motion.div>
-//   )
-// }
+function InViewItem(props: ContentItem) {
+  const { item } = props
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <motion.div
+      ref={ref}
+      className="min-h-60 bg-cover bg-center"
+      style={{
+        filter: isInView ? "none" : "blur(5px)",
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? "none" : "translateY(25px)",
+        transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+      }}
+    >
+      <motion.div
+        style={{
+          backgroundImage: `url(${item.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%",
+          width: "100%",
+        }}
+      />
+    </motion.div>
+  )
+}
+
+const content = [
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3070&q=80",
+  },
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+  },
+  // {
+  //   type: "image",
+  //   src: "https://images.unsplash.com/photo-1554080353-a576cf803bda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+  // },
+]

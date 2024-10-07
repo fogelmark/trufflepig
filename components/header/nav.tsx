@@ -1,7 +1,7 @@
 import { fadeInOut } from "@/lib/animations"
 import { cn } from "@/lib/utils"
 import { motion, MotionValue } from "framer-motion"
-import { Drawer, Icons } from "@/components"
+import { Icons } from "@/components"
 
 type NavProps = {
   isOpen: boolean
@@ -13,10 +13,9 @@ export function Nav(props: NavProps) {
 
   return (
     <motion.nav {...fadeInOut} className="cursor-pointer">
-      <Drawer isOpen={isOpen} className={classes.li} />
       {!isOpen && (
         <ul className="flex items-center gap-4">
-          {["Home", "About", "Contact"].map((item) => (
+          {["About", "Contact"].map((item) => (
             <motion.li
               {...fadeInOut}
               key={item}

@@ -21,7 +21,7 @@ export function Icons(props: IconsProps) {
   ]
 
   return (
-    <motion.div className="flex gap-4 cursor-pointer max-md:hidden" style={{ color: textColor }}>
+    <motion.div className="flex cursor-pointer max-md:hidden" style={{ color: textColor }}>
       {icons.map((icon, index) => (
         <motion.div
           key={index}
@@ -30,6 +30,7 @@ export function Icons(props: IconsProps) {
           initial={{ opacity: 1 }}
           animate={{ opacity: hoveredIndex !== null && hoveredIndex !== index ? 0.5 : 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="px-2"
         >
           <icon.Component alt={icon.alt} />
         </motion.div>

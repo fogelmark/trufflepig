@@ -1,12 +1,16 @@
 import { Hero } from "@/components"
-// import Content from "@/components/parallax-content"
+import IntroText from "@/components/intro-text"
+import ParallaxContent from "@/components/parallax-template"
 import React from "react"
 
 export default function Home() {
   return (
-    <div className="">
+    <main data-testid="main">
       <Hero />
-      {/* <ParallaxContent /> */}
-    </div>
+      <div className="flex flex-col gap-36 px-6 md:px-28 py-36">
+        <IntroText />
+        <ParallaxContent />
+      </div>
+    </main>
   )
 }
