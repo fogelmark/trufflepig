@@ -51,7 +51,7 @@ export default function ZoomParallax() {
                 src={src}
                 alt="Image"
                 placeholder="blur"
-                loading="lazy"
+                loading="eager"
                 fill
                 className="object-cover"
               />

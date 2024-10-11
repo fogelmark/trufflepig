@@ -1,5 +1,5 @@
 import Image from "next/image"
-import concert from "@/public/images/concert.jpg"
+import concert from "@/public/images/concert.webp"
 import { useScroll, useTransform, motion } from "framer-motion"
 import { useRef } from "react"
 
@@ -28,7 +28,7 @@ export default function Section() {
       </div>
       <div className="fixed left-0 top-[-10vh] h-[120vh] w-full">
         <motion.div style={{ y }} className="relative h-full w-full">
-          <Image src={concert} fill alt="image" loading="lazy" placeholder="blur" style={{ objectFit: "cover" }} />
+          <Image src={concert} fill alt="image" loading="eager" style={{ objectFit: "cover" }} />
         </motion.div>
       </div>
     </div>
