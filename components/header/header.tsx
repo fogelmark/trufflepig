@@ -8,7 +8,7 @@ import { useState } from "react"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
-  const { textColor, boxShadow, borderColor, backgroundColor } = useHeaderStyles()
+  const { textColor } = useHeaderStyles()
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
 
   if (mediaQueryMatches && isOpen) {
@@ -18,11 +18,10 @@ export function Header() {
   return (
     <motion.header
       data-testid="header"
-      style={{ backgroundColor, boxShadow, borderColor }}
-      className="fixed top-0 z-10 flex md:h-[100px] w-full items-center justify-between border-b border-gray-300 px-6 md:px-10 py-3 md:py-6 transition-all duration-300"
+      className="text-[#f3f3f3] absolute top-0 z-10 flex md:h-[100px] w-full items-center justify-between px-6 md:px-10 py-3 md:py-6 transition-all duration-300"
     >
-      <Logo textColor={textColor} />
-      <Nav isOpen={isOpen} textColor={textColor} />
+      <Logo />
+      <Nav isOpen={isOpen} />
       <MenuButton isOpen={isOpen} setOpen={setOpen} textColor={textColor} />
       <Drawer isOpen={isOpen} />
     </motion.header>

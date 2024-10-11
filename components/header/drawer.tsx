@@ -10,6 +10,7 @@ type DrawerProps = {
 
 const menuItems = [
   { text: "About" },
+  { text: "Songs" },
   { text: "Contact" },
   {
     text: "Social Media",
@@ -29,7 +30,7 @@ export function Drawer(props: DrawerProps) {
       animate={isOpen ? "open" : "closed"}
       variants={drawerVariants}
       initial="closed"
-      className="fixed inset-0 flex flex-col items-center justify-center gap-4 bg-white"
+      className="fixed inset-0 flex flex-col items-center justify-center gap-4 bg-white text-black"
     >
       {menuItems.map((item, index) => (
         <motion.li

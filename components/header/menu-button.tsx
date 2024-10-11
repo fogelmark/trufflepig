@@ -12,6 +12,7 @@ type MenuButtonProps = {
 
 export function MenuButton(props: MenuButtonProps) {
   const { isOpen, setOpen, textColor } = props;
+  
   return (
     <motion.div
       {...fadeInOut}
