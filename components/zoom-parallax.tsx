@@ -22,7 +22,6 @@ export default function ZoomParallax() {
     {
       src: image_1,
       scale: scale4,
-      left: "[0]",
     },
     {
       src: image_2,
@@ -46,7 +45,7 @@ export default function ZoomParallax() {
             style={{ scale }}
           >
             <div
-              className={`relative h-[25vh] w-[25vw] left-${left}`}
+              className={`relative h-[25vh] w-[25vw] left-${left || 0}`}
             >
               <Image
                 src={src}

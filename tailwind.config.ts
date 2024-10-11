@@ -6,6 +6,10 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "left-[-27vw]",
+    "left-[27vw]",
+  ],
   theme: {
     extend: {
       colors: {},
