@@ -20,7 +20,7 @@ export default function RootLayout({
       lang="en"
       className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-400"
     >
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-[#E9E6E2] text-[#111110]`}>
         <OpenContextProvider>
           <Header />
           {children}
