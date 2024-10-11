@@ -1,11 +1,8 @@
 "use client"
 
-import Description from "@/components/description"
-import Intro from "@/components/intro"
-import Lenis from "lenis"
+import { Description, Hero, Placeholder, ZoomParallax } from "@/components"
 import { useEffect } from "react"
-import Section from "@/components/section"
-import ZoomParallax from "@/components/zoom-parallax"
+import Lenis from "lenis"
 
 export default function Home() {
 
@@ -23,9 +20,9 @@ export default function Home() {
 
   return (
     <main>
-      <Intro />
+      <Hero />
       <Description />
-      <Section />
+      <Placeholder />
       <ZoomParallax />
     </main>
   )

@@ -1,4 +1,4 @@
-export default function Description() {
+export function Description() {
   return (
     <div className="my-40 flex justify-center">
       <p className="max-w-[50vw] text-center text-[7.5vw] uppercase leading-none">
