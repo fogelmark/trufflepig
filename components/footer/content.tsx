@@ -1,9 +1,9 @@
-import { Icons } from "./header"
 import Image from "next/image"
 import logo_text from "@/public/images/truffle_logo_text.png"
+import { Icons } from "@/components"
 
 
-export default function Content() {
+export function Content() {
   return (
     <div className="relative grid grid-cols-4 grid-rows-4 h-full w-full flex-col justify-end bg-[#0f0e0e] px-12 py-8">
       <Section1 />

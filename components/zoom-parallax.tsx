@@ -7,8 +7,7 @@ import image_1 from "@/public/images/36.webp"
 import image_2 from "@/public/images/38.webp"
 import image_3 from "@/public/images/40.webp"
 
-export default function ZoomParallax() {
-
+export function ZoomParallax() {
   const container = useRef(null)
   const { scrollYProgress } = useScroll({
     target: container,
@@ -44,9 +43,7 @@ export default function ZoomParallax() {
             className="absolute top-0 flex size-full items-center justify-center"
             style={{ scale }}
           >
-            <div
-              className={`relative h-[25vh] w-[25vw] left-${left || 0}`}
-            >
+            <div className={`relative h-[25vh] w-[25vw] left-${left || 0}`}>
               <Image
                 src={src}
                 alt="Image"
