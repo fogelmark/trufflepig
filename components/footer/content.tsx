@@ -1,8 +1,8 @@
+import { archivo_black } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 import { Nav } from "@/components/nav"
 import Image from "next/image"
 import logo_text from "@/public/images/truffle_logo_text.png"
-import { archivo_black } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
 
 
 export function Content() {

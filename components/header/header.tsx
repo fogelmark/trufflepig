@@ -2,13 +2,11 @@
 
 import { Drawer, Logo, MenuButton, Nav } from "@/components"
 import { motion } from "framer-motion"
-import { useHeaderStyles } from "@/lib/hooks"
 import { useMediaQuery } from "usehooks-ts"
 import { useState } from "react"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
-  const { textColor } = useHeaderStyles()
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
 
   if (mediaQueryMatches && isOpen) {
@@ -22,7 +20,7 @@ export function Header() {
     >
       <Logo />
       <Nav isOpen={isOpen} />
-      <MenuButton isOpen={isOpen} setOpen={setOpen} textColor={textColor} />
+      <MenuButton isOpen={isOpen} setOpen={setOpen} />
       <Drawer isOpen={isOpen} />
     </motion.header>
   )
