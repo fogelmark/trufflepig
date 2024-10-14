@@ -8,7 +8,7 @@ import Image from "next/image"
 export function Placeholder() {
   const container = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
-    target: container,
+    target: container.current ? container : undefined,
     offset: ["start end", "end start"],
   })
 
@@ -32,6 +32,7 @@ export function Placeholder() {
           <Image
             src={concert}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             alt="image"
             loading="eager"
             style={{ objectFit: "cover" }}
