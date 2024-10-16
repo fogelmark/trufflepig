@@ -11,10 +11,11 @@ import Youtube from "@/public/svg/youtube.svg"
 type NavProps = {
   isOpen?: boolean
   justify?: "justify-center" | "justify-start" | "justify-end"
+  inFooter?: boolean
 }
 
 export function Nav(props: NavProps) {
-  const { isOpen, justify } = props
+  const { isOpen, justify, inFooter } = props
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const navItems = [
@@ -29,7 +30,7 @@ export function Nav(props: NavProps) {
   return (
     <motion.nav {...fadeInOut} className="cursor-pointer">
       {!isOpen && (
-        <ul className={cn(justify ,"flex items-center")}>
+        <ul className={cn(justify ,"flex items-center", { "max-sm:grid place-content-center max-sm:grid-cols-[auto_auto_auto] max-sm:gap-y-4 max-sm:grid-rows-2 max-sm:justify-items-center": inFooter })}>
           {navItems.map((item, index) => (
             <motion.li
               {...fadeInOut}
@@ -42,7 +43,7 @@ export function Nav(props: NavProps) {
                   hoveredIndex !== null && hoveredIndex !== index ? 0.5 : 1,
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className={cn(classes.li, "px-2 max-md:hidden")}
+              className={cn(classes.li, "px-2 max-md:hidden", { "!block": inFooter})}
             >
               {typeof item === "string" ? (
                 item
