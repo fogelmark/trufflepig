@@ -1,8 +1,15 @@
 "use client"
 
-import { Description, Hero, Placeholder, ZoomParallax } from "@/components"
+import {
+  Description,
+  Hero,
+  ImageSection,
+  Placeholder,
+  ZoomParallax,
+} from "@/components"
 import { useEffect } from "react"
 import Lenis from "lenis"
+import { useMediaQuery } from "usehooks-ts"
 
 export default function Home() {
 
@@ -18,12 +25,17 @@ export default function Home() {
     requestAnimationFrame(raf)
   }, [])
 
+  const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
+    initializeWithValue: false,
+    defaultValue: false,
+  })
+
   return (
     <main>
       <Hero />
       <Description />
       <Placeholder />
-      <ZoomParallax />
+      {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />}
     </main>
   )
 }
