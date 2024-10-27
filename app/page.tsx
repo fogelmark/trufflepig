@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  Cuts,
   Description,
   Hero,
   ImageSection,
@@ -35,7 +36,8 @@ export default function Home() {
       <Hero />
       <Description />
       <Placeholder />
-      {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />}
+      {/* {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />} */}
+      <Cuts />
     </main>
   )
 }
