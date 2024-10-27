@@ -1,5 +1,5 @@
 import { cuts } from "@/lib/data"
-import { useTotalPlays } from "@/lib/hooks";
+import { useTotalPlays } from "@/lib/hooks/use-total-plays";
 
 export function Cuts() {
 
