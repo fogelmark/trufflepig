@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  Cuts,
   Description,
   Hero,
   ImageSection,
@@ -12,7 +13,6 @@ import Lenis from "lenis"
 import { useMediaQuery } from "usehooks-ts"
 
 export default function Home() {
-
   useEffect(() => {
     const lenis = new Lenis()
 
@@ -36,6 +36,7 @@ export default function Home() {
       <Description />
       <Placeholder />
       {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />}
+      <Cuts />
     </main>
   )
 }
