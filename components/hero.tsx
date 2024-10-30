@@ -1,29 +1,26 @@
-"use client"
+"use client";
 
-import { useScroll, useTransform, motion } from "framer-motion"
-import Image from "next/image"
-import image_1 from "@/public/images/artist.webp"
+import { cn } from "@/lib/utils";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 
 export function Hero() {
-
-  const { scrollYProgress } = useScroll({
-    offset: ["start start", "end start"],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"])
-
+  const container = useRef(null);
+  const { scrollY } = useScroll();
+  
+  const x = useTransform(scrollY, [0, 1000], ["0%", "-350%"]);
+  
   return (
-    <div className="h-screen overflow-hidden">
-      <motion.div style={{ y }} className="relative h-full">
-        <Image
-          src={image_1}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          fill
-          alt="image"
-          style={{ objectFit: "cover" }}
-          priority
-        />
-      </motion.div>
+    <div ref={container} className="relative h-[250vh]">
+      <div className="sticky top-0 flex h-screen flex-col justify-end overflow-hidden">
+        <motion.h1
+          style={{ x }}
+          className={cn("text-nowrap font-serif text-[13vw] uppercase leading-none md:max-w-[50vw]",)}
+        >
+          Truffle Pig Publishing
+        </motion.h1>
+      </div>
     </div>
-  )
+  );
 }

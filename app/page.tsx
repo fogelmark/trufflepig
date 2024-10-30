@@ -11,6 +11,7 @@ import {
 import { useEffect } from "react"
 import Lenis from "lenis"
 import { useMediaQuery } from "usehooks-ts"
+import { ImagesSliderDemo } from "@/components/hero-demo"
 
 export default function Home() {
   useEffect(() => {
@@ -32,11 +33,12 @@ export default function Home() {
 
   return (
     <main>
+      {/* <ImagesSliderDemo /> */}
       <Hero />
-      <Description />
-      <Placeholder />
-      {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />}
+      {/* <Description /> */}
       <Cuts />
+      {/* <Placeholder /> */}
+      {/* {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />} */}
     </main>
   )
 }
