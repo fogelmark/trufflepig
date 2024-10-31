@@ -6,14 +6,18 @@ import {
   Hero,
   ImageSection,
   Placeholder,
+  PreLoader,
   ZoomParallax,
 } from "@/components"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Lenis from "lenis"
 import { useMediaQuery } from "usehooks-ts"
 import { ImagesSliderDemo } from "@/components/hero-demo"
+import { AnimatePresence } from "framer-motion"
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     const lenis = new Lenis()
 
@@ -26,6 +30,11 @@ export default function Home() {
     requestAnimationFrame(raf)
   }, [])
 
+  setTimeout(() => {
+    setIsLoading(false)
+    window.scrollTo(0, 0)
+  }, 500)
+
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
     defaultValue: false,
@@ -33,6 +42,9 @@ export default function Home() {
 
   return (
     <main>
+      {/* <AnimatePresence mode="wait">
+        {isLoading && <PreLoader />}
+      </AnimatePresence> */}
       {/* <ImagesSliderDemo /> */}
       <Hero />
       {/* <Description /> */}
