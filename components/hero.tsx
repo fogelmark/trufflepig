@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -16,7 +15,7 @@ export function Hero() {
       <div className="sticky top-0 flex h-screen flex-col justify-end overflow-hidden">
         <motion.h1
           style={{ x }}
-          className={cn("text-nowrap font-serif text-[13vw] uppercase leading-none md:max-w-[50vw]",)}
+          className="ml-4 text-nowrap font-serif text-[13vw] uppercase leading-none"
         >
           Truffle Pig Publishing
         </motion.h1>

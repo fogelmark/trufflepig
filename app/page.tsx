@@ -32,7 +32,7 @@ export default function Home() {
 
   setTimeout(() => {
     setIsLoading(false)
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
   }, 500)
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
