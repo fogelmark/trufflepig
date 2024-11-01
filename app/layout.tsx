@@ -18,14 +18,12 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="scrollbar-thin scrollbar-track-[#0e0d0e] scrollbar-thumb-gray-400"
+      className="scrollbar-thin scrollbar-track-[#0f0e0e] scrollbar-thumb-gray-400"
     >
-      {/* <body className={`${inter.className} antialiased bg-[#E9E6E2] text-[#111110]`}> */}
-      <body className={`${inter.className} antialiased bg-[#0e0d0e] text-[#f5f3ee]`}>
+      <body className={`${inter.className} antialiased bg-[#0f0e0e] text-[#f5f3ee]`}>
         <OpenContextProvider>
-          <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </OpenContextProvider>
       </body>
     </html>

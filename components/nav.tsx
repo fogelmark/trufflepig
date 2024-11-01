@@ -28,7 +28,7 @@ export function Nav(props: NavProps) {
   ]
 
   return (
-    <motion.nav {...fadeInOut} className="cursor-pointer">
+    <motion.nav {...fadeInOut} className="cursor-pointer self-start">
       {!isOpen && (
         <ul className={cn(justify ,"flex items-center", { "max-sm:grid place-content-center max-sm:grid-cols-[auto_auto_auto] max-sm:gap-y-4 max-sm:grid-rows-2 max-sm:justify-items-center": inFooter })}>
           {navItems.map((item, index) => (

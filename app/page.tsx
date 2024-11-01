@@ -3,6 +3,7 @@
 import {
   Cuts,
   Description,
+  Header,
   Hero,
   ImageSection,
   Placeholder,
@@ -32,7 +33,6 @@ export default function Home() {
 
   setTimeout(() => {
     setIsLoading(false)
-    // window.scrollTo(0, 0)
   }, 500)
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
@@ -41,7 +41,7 @@ export default function Home() {
   })
 
   return (
-    <main>
+    <main className="relative h-[200vh]">
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}

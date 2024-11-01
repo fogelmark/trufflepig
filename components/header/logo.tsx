@@ -1,16 +1,16 @@
 import { fadeInOut } from "@/lib/animations"
-import { archivo_black } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
+import Image from "next/image"
+import logo from "@/public/images/truffle_logo_2.jpg"
 
 export function Logo() {
 
   return (
     <motion.div
       {...fadeInOut}
-      className={cn(archivo_black.className, "text-4xl -tracking-widest")}
+      className="border-4 border-[#d1d1d1] rounded-full"
     >
-      truffle pig
+      <Image src={logo} alt="Logo" height={75} width={75} className="rounded-full" />
     </motion.div>
   )
 }

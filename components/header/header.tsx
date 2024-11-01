@@ -16,7 +16,7 @@ export function Header() {
   return (
     <motion.header
       data-testid="header"
-      className="text-[#f3f3f3] absolute top-0 z-10 flex md:h-[100px] w-full items-center justify-between px-6 md:px-10 py-3 md:py-6 transition-all duration-300"
+      className="fixed top-0 z-10 flex w-full items-center justify-between px-6 py-3 text-[#f3f3f3] transition-all duration-300 md:p-4"
     >
       <Logo />
       <Nav isOpen={isOpen} />
