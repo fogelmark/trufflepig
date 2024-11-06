@@ -2,7 +2,8 @@
 
 import {
   Cuts,
-  Description,
+  Drawer,
+  Footer,
   Header,
   Hero,
   ImageSection,
@@ -10,14 +11,19 @@ import {
   PreLoader,
   ZoomParallax,
 } from "@/components"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Lenis from "lenis"
 import { useMediaQuery } from "usehooks-ts"
-import { ImagesSliderDemo } from "@/components/hero-demo"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, useScroll } from "framer-motion"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const container = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  })
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -41,14 +47,14 @@ export default function Home() {
   })
 
   return (
-    <main className="relative h-[200vh]">
+    <main ref={container} className="relative h-[200vh]">
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}
-      {/* <ImagesSliderDemo /> */}
-      <Hero />
-      {/* <Description /> */}
+      <Hero scrollYProgress={scrollYProgress} />
       <Cuts />
+      {/* <Footer /> */}
+      {/* <Description /> */}
       {/* <Placeholder /> */}
       {/* {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />} */}
     </main>

@@ -20,7 +20,7 @@ export function Placeholder() {
       className="relative flex h-screen items-center justify-center overflow-hidden"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative z-10 flex h-full w-full flex-col justify-between p-10 text-[#f3f3f3] md:p-20">
+      <div className="relative z-10 flex h-full w-full flex-col justify-between p-10 text-[#f5f3ee] md:p-20">
         <p className="self-end text-[7.5vw] uppercase text-center md:w-[50vw] md:text-[2vw]">
           Beauty and quality need the right time to be conceived and realised
           even in a world that is in too much of a hurry.

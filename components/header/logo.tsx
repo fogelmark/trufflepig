@@ -1,16 +1,14 @@
-import { fadeInOut } from "@/lib/animations"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import logo from "@/public/images/truffle_logo_2.jpg"
+import logo_black_02 from "@/public/logo/logo_black_02.png"
 
 export function Logo() {
 
   return (
     <motion.div
-      {...fadeInOut}
-      className="border-4 border-[#d1d1d1] rounded-full"
+      className="mb-auto p-4"
     >
-      <Image src={logo} alt="Logo" height={75} width={75} className="rounded-full" />
+      <Image src={logo_black_02} alt="Logo" height={100} width={100} />
     </motion.div>
   )
 }

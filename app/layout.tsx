@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { inter } from "@/lib/fonts"
-import { Footer } from "@/components"
+import { Header } from "@/components"
 
 export const metadata: Metadata = {
   title: "Truffle Pig",
@@ -17,11 +17,13 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="scrollbar-thin scrollbar-track-[#0f0e0e] scrollbar-thumb-gray-400"
+      className="scrollbar-thin scrollbar-track-[#f5f3ee] scrollbar-thumb-gray-400"
     >
-      <body className={`${inter.className} antialiased bg-[#0f0e0e] text-[#f5f3ee]`}>
-          {children}
-          {/* <Footer /> */}
+      <body
+        className={`${inter.className} text-[#f5f3ee] bg-[#0f0e0e] antialiased`}
+      >
+        <Header />
+        {children}
       </body>
     </html>
   )

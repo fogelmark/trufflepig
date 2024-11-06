@@ -59,5 +59,5 @@ export function Nav(props: NavProps) {
 }
 
 const classes = {
-  li: "uppercase text-xs",
+  li: "uppercase text-[10px]",
 }

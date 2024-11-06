@@ -1,3 +1,5 @@
+"use client"
+
 import { drawerVariants, itemVariants } from "@/lib/variants"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
@@ -42,7 +44,7 @@ export function Drawer(props: DrawerProps) {
       animate={isOpen ? "open" : "closed"}
       variants={drawerVariants}
       initial="closed"
-      className="fixed inset-0 flex flex-col items-center justify-center gap-4 bg-white text-black"
+      className="fixed inset-0 flex flex-col items-center justify-center gap-4"
     >
       {menuItems.map((item, index) => (
         <motion.li
