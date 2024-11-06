@@ -11,15 +11,14 @@ export function Cuts() {
   const totalFormattedPlays: string = useTotalPlays(playCounts)
   const isInView = useInView(container)
 
-  useEffect(() => {
-    console.log("Element is in view: ", isInView)
-  }, [isInView])
+  console.log(cuts);
 
   const imageVariants = {
-    hidden: { y: 100, opacity: 0 },
+    hidden: { y: 100, opacity: 0, filter: "blur(10px)" },
     visible: (index: number) => ({
       y: 0,
       opacity: 1,
+      filter: "blur(0px)",
       transition: {
         delay: index * 0.1,
         duration: 0.6,
