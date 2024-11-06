@@ -16,14 +16,14 @@ export function Cuts() {
   }, [isInView])
 
   const imageVariants = {
-    hidden: { y: 100, opacity: 0 }, // Start below and invisible
+    hidden: { y: 100, opacity: 0 },
     visible: (index: number) => ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: index * 0.1, // Stagger effect
-        duration: 0.6, // Increase duration for smoother effect
-        ease: [0.25, 0.1, 0.25, 1], // Custom cubic bezier for smoother ease
+        delay: index * 0.1,
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1],
       },
     }),
   }

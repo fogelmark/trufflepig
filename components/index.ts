@@ -6,6 +6,6 @@ export * from "@/components/zoom-parallax";
 export * from "@/components/placeholder";
 export * from "@/components/nav"
 export * from "@/components/image-section"
-export * from "@/components/cuts"
+export * from "@/components/cuts/cuts"
 export * from "@/components/preloader/pre-loader"
-export * from "@/components/cuts"
+export * from "@/components/cuts/cuts"
