@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { useScroll, useTransform, motion } from "framer-motion"
 import concert from "@/public/images/concert.webp"
 import Image from "next/image"
+import logo from "@/public/logo/Logo_white.png"
 
 export function Placeholder() {
   const container = useRef(null)

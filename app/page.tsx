@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  Cuts,
   Drawer,
   Footer,
   Header,
@@ -15,6 +14,8 @@ import { useEffect, useRef, useState } from "react"
 import Lenis from "lenis"
 import { useMediaQuery } from "usehooks-ts"
 import { AnimatePresence, useScroll } from "framer-motion"
+import { Cuts } from "@/components/cuts/cuts"
+import { Heroo } from "@/components/hero/hero2"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -51,10 +52,10 @@ export default function Home() {
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}
-      <Hero scrollYProgress={scrollYProgress} />
+      {/* <Hero scrollYProgress={scrollYProgress} /> */}
+      <Heroo scrollYProgress={scrollYProgress} />
       <Cuts />
-      {/* <Footer /> */}
-      {/* <Description /> */}
+      <Footer />
       {/* <Placeholder /> */}
       {/* {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />} */}
     </main>

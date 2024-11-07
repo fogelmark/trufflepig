@@ -1,16 +1,16 @@
-export const slideUp = {
-  initial: {
-      y: "100%"
-  },
-  open: (index: number) => ({
-      y: "0%",
-      transition: {duration: 0.5, delay: 0.01 * index}
-  }),
-  closed: {
-      y: "100%",
-      transition: {duration: 0.5}
-  }
-}
+// export const slideUp = {
+//   initial: {
+//       y: "100%"
+//   },
+//   open: (index: number) => ({
+//       y: "0%",
+//       transition: {duration: 0.5, delay: 0.01 * index}
+//   }),
+//   closed: {
+//       y: "100%",
+//       transition: {duration: 0.5}
+//   }
+// }
 
 export const opacity = {
   initial: {

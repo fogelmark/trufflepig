@@ -1,56 +1,50 @@
 "use client"
 
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 import { cuts } from "@/lib/data"
-import { useEffect, useRef } from "react"
 import { useTotalPlays } from "@/lib/hooks/use-total-plays"
-import { useInView, motion } from "framer-motion"
 
 export function Cuts() {
   const container = useRef(null)
   const playCounts: string[] = cuts.map((cut) => cut.spotifyPlays)
   const totalFormattedPlays: string = useTotalPlays(playCounts)
-  const isInView = useInView(container)
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  })
 
-  console.log(cuts);
-
-  const imageVariants = {
-    hidden: { y: 100, opacity: 0, filter: "blur(10px)" },
-    visible: (index: number) => ({
-      y: 0,
-      opacity: 1,
-      filter: "blur(0px)",
-      transition: {
-        delay: index * 0.1,
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1],
-      },
-    }),
+  const getYTransform = (index: number) => {
+    const startOffset = 1000 + index * 100
+    return useTransform(
+      scrollYProgress,
+      [0, 0.1 + index * 0.1],
+      [startOffset, 0],
+    )
   }
 
   return (
-    <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden bg-[#0f0e0e] px-10 text-[#f5f3eee]">
-      <motion.div
-        ref={container}
-        className="mx-auto grid w-fit grid-cols-8 justify-items-center gap-2"
-      >
-        {cuts.map((cut, index) => (
-          <div className="overflow-hidden" key={index}>
+    <div className="sticky top-0 h-[1000vh] bg-[#f5f3ee]">
+      <div className="sticky top-0 mx-auto grid h-screen w-[70vw] grid-cols-4 grid-rows-2 items-center justify-items-center gap-1">
+      {/* <p className="absolute bottom-[35%] right-[70%] z-10 text-4xl font-bold text-black">Over {totalFormattedPlays} plays on Spotify.</p> */}
+        {cuts.map((cut, index) => {
+          const y = getYTransform(index)
+          return (
             <motion.div
-              className="relative"
-              variants={imageVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              custom={index}
+              key={index}
+              style={{ y }}
+              className={`group w-full overflow-hidden rounded-sm self-${cut.id > 4 ? "start" : "end"} row-start-${cut.id > 4 ? 2 : 1}`}
             >
               <img
                 src={cut.image}
                 alt={cut.title}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                // className="h-full w-full object-cover transition-transform duration-300 ease-in-out"
               />
             </motion.div>
-          </div>
-        ))}
-      </motion.div>
+          )
+        })}
+      </div>
     </div>
   )
 }

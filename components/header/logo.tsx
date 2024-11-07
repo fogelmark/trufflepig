@@ -6,9 +6,9 @@ export function Logo() {
 
   return (
     <motion.div
-      className="mb-auto p-4"
+      className="row-start-1 justify-self-center"
     >
-      <Image src={logo_black_02} alt="Logo" height={100} width={100} />
+      <Image src={logo_black_02} alt="Logo" height={75} width={75} />
     </motion.div>
   )
 }
