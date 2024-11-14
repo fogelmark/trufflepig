@@ -3,7 +3,7 @@
 "use client"
 
 import { AnimatePresence, useScroll } from "framer-motion"
-import { Footer, Hero } from "@/components"
+import { Footer, Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import Description from "@/components/description"
@@ -13,6 +13,11 @@ import Lenis from "lenis"
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const container = useRef(null)
+  const [isPreloaderComplete, setIsPreloaderComplete] = useState(false);
+
+  const handlePreloaderComplete = () => {
+    setIsPreloaderComplete(true);
+  };
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -28,12 +33,15 @@ export default function Home() {
       requestAnimationFrame(raf)
     }
 
+    window.scrollTo(0, 0)
+
     requestAnimationFrame(raf)
   }, [])
 
   setTimeout(() => {
+    handlePreloaderComplete()
     setIsLoading(false)
-  }, 500)
+  }, 1500)
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
@@ -42,10 +50,10 @@ export default function Home() {
 
   return (
     <main ref={container} className="relative h-[200vh]">
-      {/* <AnimatePresence mode="wait">
-        {isLoading && <PreLoader />}
-      </AnimatePresence> */}
-      <Hero scrollYProgress={scrollYProgress} />
+      <AnimatePresence mode="wait">
+        {isLoading && <PreLoader handlePreloaderComplete={handlePreloaderComplete} />}
+      </AnimatePresence>
+      <Hero isPreloaderComplete={isPreloaderComplete} scrollYProgress={scrollYProgress} />
       <Description />
       <FeaturedSongs />
       <Footer />

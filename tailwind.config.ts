@@ -17,7 +17,7 @@ const config: Config = {
         "gray-primary": "#1d2120",
       },
       backgroundImage: {
-        "hero-pattern": "url(/images/artist.webp)",
+        "noise": "url(/svg/noise.svg)",
       },
     },
   },
