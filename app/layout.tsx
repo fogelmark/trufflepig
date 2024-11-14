@@ -1,7 +1,7 @@
-import type { Metadata } from "next"
 import "./globals.css"
-import { monteserrat } from "@/lib/fonts"
 import { Header } from "@/components"
+import { monteserrat } from "@/lib/fonts"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Truffle Pig",

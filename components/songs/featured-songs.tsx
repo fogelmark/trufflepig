@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import { useRef } from "react"
 import { cuts } from "@/lib/data"
 import Image from "next/image"
 import {
@@ -7,7 +7,6 @@ import {
   useSpring,
   useTransform,
   useInView,
-  useScroll,
 } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -20,16 +19,9 @@ function formatCount(value: number): string {
   return value.toString()
 }
 
-export default function CutsThree() {
+export default function FeaturedSongs() {
   const container = useRef(null)
-  const grid = useRef(null)
   const inView = useInView(container, { once: true })
-  const { scrollYProgress } = useScroll({
-    target: grid,
-    offset: ["start end", "end start"],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
 
   const countValue = useMotionValue(1_000_000)
   const springValue = useSpring(countValue, { stiffness: 50, damping: 30 })
@@ -46,10 +38,7 @@ export default function CutsThree() {
 
   return (
     <div ref={container} className="relative min-h-screen bg-white">
-      <div
-        ref={grid}
-        className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-4 px-2"
-      >
+      <div className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-4 px-2">
         <p className="col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase">
           <motion.span>{formattedCount}</motion.span>+ <br />
           streams <br />

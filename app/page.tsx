@@ -1,24 +1,12 @@
 "use client"
 
-import {
-  Drawer,
-  Footer,
-  Header,
-  Hero,
-  ImageSection,
-  Placeholder,
-  PreLoader,
-  ZoomParallax,
-} from "@/components"
-import { useEffect, useRef, useState } from "react"
-import Lenis from "lenis"
-import { useMediaQuery } from "usehooks-ts"
 import { AnimatePresence, useScroll } from "framer-motion"
-import { Cuts } from "@/components/cuts/cuts"
-import { Heroo } from "@/components/hero/hero2"
-import Desc from "@/components/cuts/desc"
-import CutsTwo from "@/components/cuts/cuts2"
-import CutsThree from "@/components/cuts/cuts3"
+import { Footer, Hero } from "@/components"
+import { useEffect, useRef, useState } from "react"
+import { useMediaQuery } from "usehooks-ts"
+import Description from "@/components/description"
+import FeaturedSongs from "@/components/songs/featured-songs"
+import Lenis from "lenis"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -55,9 +43,9 @@ export default function Home() {
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}
-      <Heroo scrollYProgress={scrollYProgress} />
-      <Desc />
-      <CutsThree />
+      <Hero scrollYProgress={scrollYProgress} />
+      <Description />
+      <FeaturedSongs />
       <Footer />
     </main>
   )

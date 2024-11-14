@@ -4,8 +4,10 @@ import { fadeInOut } from "@/lib/animations"
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { Heading } from "./heading"
-import { Logo } from "../header"
 import { Description } from "./description"
+import { Subgrid } from "./subgrid"
+import Image from "next/image"
+import logo from "@/public/logo/logo_black_02.png"
 
 interface HeroProps {
   scrollYProgress: MotionValue<number>
@@ -25,20 +27,31 @@ export function Hero({ scrollYProgress }: HeroProps) {
   const y = useTransform(scrollY, [0, 1000], ["0%", "-60%"])
 
   return (
-    <div ref={container} className="sticky top-0 h-[100vh] w-full">
+    <div
+      ref={container}
+      className="sticky top-0 h-screen w-full bg-black"
+      style={{ containerType: "inline-size" }}
+    >
       <motion.div
-        className="bg-white text-[hsl(0,3%,2%)]"
-
+        className="bg-white px-10 text-black"
         style={{ scaleX, filter }}
       >
         <motion.div
-          {...fadeInOut}
-          className="flex h-screen flex-col justify-end"
+          // {...fadeInOut}
+          className="grid h-screen grid-flow-row grid-cols-1 items-center py-4"
           style={{ y }}
         >
-          <Logo />
-          <Description />
+        {/* <Image
+          className="absolute opacity-10"
+          src={logo}
+          alt="kuk"
+          width={300}
+          height={300}
+          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+        /> */}
           <Heading />
+          <Description />
+          <Subgrid />
         </motion.div>
       </motion.div>
     </div>

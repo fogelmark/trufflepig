@@ -17,12 +17,11 @@ export function Subgrid() {
       );
     };
 
-    updateTime(); // Set initial time
-    const intervalId = setInterval(updateTime, 15000); // Update every second
+    updateTime()
+    const intervalId = setInterval(updateTime, 15000)
 
-
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []);
+    return () => clearInterval(intervalId)
+  }, [])
 
   return (
     <div className="subgrid row-start-5 grid grid-cols-8 grid-rows-1 self-end">
@@ -30,7 +29,6 @@ export function Subgrid() {
         Stockholm{" "}
         <span className="uppercase">{time}</span>
       </div>
-      {/* <div className="col-start-8 text-end font-semibold self-end">SCROLL</div> */}
     </div>
   );
 }

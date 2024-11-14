@@ -1,21 +1,10 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import { slideUp } from "./animation"
 
 export function Description() {
   const container = useRef(null)
   const isInView = useInView(container, { once: true })
-
-  const slideUp = {
-    initial: { y: "100%" },
-    open: {
-      y: "0%",
-      transition: { duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-    },
-    closed: {
-      y: "100%",
-      transition: { duration: 3, ease: "easeInOut" },
-    },
-  }
 
   return (
     <div

@@ -4,27 +4,19 @@ import { fadeInOut } from "@/lib/animations"
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 import { useState } from "react"
-import Facebook from "@/public/svg/facebook.svg"
-import Instagram from "@/public/svg/instagram.svg"
-import Youtube from "@/public/svg/youtube.svg"
 
 type NavProps = {
   isOpen?: boolean
-  justify?: "justify-center" | "justify-start" | "justify-end"
-  inFooter?: boolean
 }
 
 export function Nav(props: NavProps) {
-  const { isOpen, justify, inFooter } = props
+  const { isOpen } = props
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const navItems = [
     "About",
     "Songs",
     "Contact",
-    // { Component: Instagram, alt: "Instagram" },
-    // { Component: Youtube, alt: "Youtube" },
-    // { Component: Facebook, alt: "Facebook" },
   ]
 
   return (
@@ -46,11 +38,6 @@ export function Nav(props: NavProps) {
               className={cn(classes.li, "px-2 max-md:hidden")}
             >
               {item}
-              {/* {typeof item === "string" ? (
-                item
-              ) : (
-                <item.Component alt={item.alt} />
-              )} */}
             </motion.li>
           ))}
         </ul>
