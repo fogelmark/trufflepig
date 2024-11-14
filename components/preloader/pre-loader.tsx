@@ -20,23 +20,25 @@ interface PreLoaderProps {
 
 export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
   return (
-    <motion.div
-      variants={curtain}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      onAnimationComplete={() => handlePreloaderComplete()}
-      className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
-    >
+    <>
+      <motion.div
+        variants={curtain}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        onAnimationComplete={() => handlePreloaderComplete()}
+        className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
+      ></motion.div>
       <Image
+        className="absolute left-1/2 top-1/4 z-[95] -translate-x-1/2 -translate-y-1/2 transform"
         src={logo}
         alt="Logo"
         width={300}
         height={300}
         priority
+        loading="eager"
         draggable={false}
-        className="z-[100]"
       />
-    </motion.div>
+    </>
   )
 }

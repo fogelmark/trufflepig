@@ -17,13 +17,3 @@ export const slideUp = {
       transition: {duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2}
   }
 }
-
-export const grow = {
-  initial: {
-    borderWidth: "20vw"
-  },
-  exit: {
-    borderWidth: "0vw",
-    transition: {duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2}
-  }
-}
