@@ -1,8 +1,7 @@
-import type { Metadata } from "next"
 import "./globals.css"
-import { inter } from "@/lib/fonts"
-import { Footer, Header } from "@/components"
-import { OpenContextProvider } from "@/contexts/open-provider"
+import { Header } from "@/components"
+import { monteserrat } from "@/lib/fonts"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Truffle Pig",
@@ -18,14 +17,13 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-400"
+      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-300"
     >
-      <body className={`${inter.className} antialiased bg-[#E9E6E2] text-[#111110]`}>
-        <OpenContextProvider>
-          <Header />
-          {children}
-          <Footer />
-        </OpenContextProvider>
+      <body
+        className={`${monteserrat.className} text-black bg-white antialiased`}
+      >
+        <Header />
+        {children}
       </body>
     </html>
   )
