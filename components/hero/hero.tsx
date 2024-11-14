@@ -1,13 +1,10 @@
 "use client"
 
-import { fadeInOut } from "@/lib/animations"
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { Heading } from "./heading"
 import { Description } from "./description"
 import { Subgrid } from "./subgrid"
-import Image from "next/image"
-import logo from "@/public/logo/logo_black_02.png"
 
 interface HeroProps {
   scrollYProgress: MotionValue<number>
@@ -37,18 +34,9 @@ export function Hero({ scrollYProgress }: HeroProps) {
         style={{ scaleX, filter }}
       >
         <motion.div
-          // {...fadeInOut}
           className="grid h-screen grid-flow-row grid-cols-1 items-center py-4"
           style={{ y }}
         >
-        {/* <Image
-          className="absolute opacity-10"
-          src={logo}
-          alt="kuk"
-          width={300}
-          height={300}
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-        /> */}
           <Heading />
           <Description />
           <Subgrid />

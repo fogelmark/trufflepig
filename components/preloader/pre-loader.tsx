@@ -1,6 +1,9 @@
+/* eslint-disable */
+
 import { motion } from "framer-motion"
 // import { grow } from "./animation"
 import logo from "@/public/logo/logo_black_02.png"
+import Image from "next/image"
 
 const grow = {
   initial: {
@@ -21,7 +24,7 @@ export function PreLoader() {
       exit="exit"
       className="absolute z-[99] flex h-screen w-screen items-center justify-center border-white"
     >
-      <img src={logo.src} alt="Logo" />
+      <Image src={logo.src} alt="Logo" />
     </motion.div>
   )
 }
