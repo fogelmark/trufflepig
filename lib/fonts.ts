@@ -27,9 +27,3 @@ export const lora = Lora({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 })
-
-export const bodoni_moda = Bodoni_Moda({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-})
-
