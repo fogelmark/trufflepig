@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { slideUp } from "./animation"
+import { slideUp, slideUpDelayed } from "./animation"
 
 export function Description() {
   const container = useRef(null)
@@ -8,18 +8,24 @@ export function Description() {
 
   return (
     <div
-      className="row-start-4 self-start flex justify-between overflow-hidden"
+      className="row-start-4 flex text-end flex-col justify-between overflow-hidden self-start"
       ref={container}
     >
-      <motion.h2
+      <motion.p
         variants={slideUp}
         initial="closed"
         animate={isInView ? "open" : "closed"}
-        className="ml-auto w-1/3 text-end"
       >
         Indie publishing company based in
-        <br /> <span>Stockholm.</span>
-      </motion.h2>
+        <br />
+      </motion.p>
+      <motion.p
+        variants={slideUpDelayed}
+        initial="closed"
+        animate={isInView ? "open" : "closed"}
+      >
+        Stockholm.
+      </motion.p>
     </div>
   )
 }

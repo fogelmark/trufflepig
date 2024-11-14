@@ -1,30 +1,46 @@
 /* eslint-disable */
 
+"use client"
+
 import { motion } from "framer-motion"
-// import { grow } from "./animation"
-import logo from "@/public/logo/logo_black_02.png"
+import logo from "@/public/logo/Logo_white.png"
 import Image from "next/image"
 
-const grow = {
+const curtain = {
   initial: {
-    borderWidth: "20vw"
+    y: 0,
   },
-  exit: {
-    borderWidth: "0vw",
-    transition: {duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2}
-  }
+  animate: {
+    y: "100vh",
+    transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
+  },
 }
 
-export function PreLoader() {
+interface PreLoaderProps {
+  handlePreloaderComplete: () => void
+}
+
+export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
   return (
-    <motion.div
-      variants={grow}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="absolute z-[99] flex h-screen w-screen items-center justify-center border-white"
-    >
-      <Image src={logo.src} alt="Logo" />
-    </motion.div>
+    <>
+      <motion.div
+        variants={curtain}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        onAnimationComplete={() => handlePreloaderComplete()}
+        className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
+      ></motion.div>
+      <Image
+        className="fixed left-1/2 top-1/2 z-[95] -translate-x-1/2 -translate-y-1/2 transform"
+        src={logo}
+        alt="Logo"
+        width={300}
+        height={300}
+        priority
+        loading="eager"
+        draggable={false}
+      />
+    </>
   )
 }

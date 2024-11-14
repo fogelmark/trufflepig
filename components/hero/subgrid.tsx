@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeInOut } from "@/lib/animations";
 
 export function Subgrid() {
   const [time, setTime] = useState("");
@@ -24,11 +26,11 @@ export function Subgrid() {
   }, [])
 
   return (
-    <div className="subgrid row-start-5 grid grid-cols-8 grid-rows-1 self-end">
+    <motion.div {...fadeInOut} className="subgrid row-start-5 grid grid-cols-8 grid-rows-1 self-end">
       <div className="col-span-2 col-start-1 self-end">
         Stockholm{" "}
         <span className="uppercase">{time}</span>
       </div>
-    </div>
+    </motion.div>
   );
 }

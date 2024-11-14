@@ -4,10 +4,12 @@ import { Drawer, MenuButton, Nav } from "@/components"
 import { motion } from "framer-motion"
 import { useMediaQuery } from "usehooks-ts"
 import { useState } from "react"
+import { useOpenContext } from "@/lib/hooks/use-context"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
+  const { isPreloaderComplete } = useOpenContext()
 
   if (mediaQueryMatches && isOpen) {
     setOpen(false)
@@ -18,7 +20,9 @@ export function Header() {
       data-testid="header"
       className="absolute top-0 z-10 flex w-full items-center justify-center px-6 py-3 text-[hsl(0,3%,4%)] transition-all duration-300 md:px-10 md:py-6"
     >
-      <Nav isOpen={isOpen} />
+      { isPreloaderComplete && (
+        <Nav isOpen={isOpen} />
+      )}
       <MenuButton isOpen={isOpen} setOpen={setOpen} />
       <Drawer isOpen={isOpen} />
     </motion.header>

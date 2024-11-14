@@ -1,4 +1,4 @@
-import { Archivo_Black, Bodoni_Moda, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
+import { Archivo_Black, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
 
 export const inter = Inter({ subsets: ["latin"] })
 
@@ -27,9 +27,3 @@ export const lora = Lora({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 })
-
-export const bodoni_moda = Bodoni_Moda({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-})
-

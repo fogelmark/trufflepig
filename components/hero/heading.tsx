@@ -12,20 +12,20 @@ export function Heading() {
   const slideUp = {
     initial: {
       y: "100%",
-      skewY: "10deg",
+      skewY: "5deg",
     },
     open: (i: number) => ({
-      y: "0%",
+      y: 0,
       skewY: "0deg",
       transition: {
-        duration: 1,
+        duration: 0.8,
         delay: 0.1 * i,
-        ease: [0.16, 1, 0.3, 1],
+        ease: [0.215, 0.61, 0.355, 1],
       },
     }),
     closed: {
       y: "100%",
-      skewY: "10deg",
+      skewY: "5deg",
       transition: { duration: 1, ease: "easeInOut" },
     },
   }
