@@ -27,7 +27,7 @@ export function Hero({ scrollYProgress }: HeroProps) {
   return (
     <div ref={container} className="sticky top-0 h-[100vh] w-full">
       <motion.div
-        className="bg-[#f5f3ee] text-[hsl(0,3%,2%)]"
+        className="bg-white text-[hsl(0,3%,2%)]"
 
         style={{ scaleX, filter }}
       >

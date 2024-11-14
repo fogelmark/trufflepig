@@ -12,7 +12,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        "red-primary": "#f34848",
+        "gray-primary": "#1d2120",
+      },
       backgroundImage: {
         "hero-pattern": "url(/images/artist.webp)",
       },

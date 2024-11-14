@@ -16,6 +16,9 @@ import { useMediaQuery } from "usehooks-ts"
 import { AnimatePresence, useScroll } from "framer-motion"
 import { Cuts } from "@/components/cuts/cuts"
 import { Heroo } from "@/components/hero/hero2"
+import Desc from "@/components/cuts/desc"
+import CutsTwo from "@/components/cuts/cuts2"
+import CutsThree from "@/components/cuts/cuts3"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -52,12 +55,10 @@ export default function Home() {
       {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence> */}
-      {/* <Hero scrollYProgress={scrollYProgress} /> */}
       <Heroo scrollYProgress={scrollYProgress} />
-      <Cuts />
+      <Desc />
+      <CutsThree />
       <Footer />
-      {/* <Placeholder /> */}
-      {/* {mediaQueryMatches ? <ZoomParallax /> : <ImageSection />} */}
     </main>
   )
 }

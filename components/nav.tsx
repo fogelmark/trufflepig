@@ -30,7 +30,7 @@ export function Nav(props: NavProps) {
   return (
     <motion.nav {...fadeInOut} className="cursor-pointer">
       {!isOpen && (
-        <ul className={cn(justify ,"flex items-center", { "max-sm:grid place-content-center max-sm:grid-cols-[auto_auto_auto] max-sm:gap-y-4 max-sm:grid-rows-2 max-sm:justify-items-center": inFooter })}>
+        <ul className={cn("flex items-center")}>
           {navItems.map((item, index) => (
             <motion.li
               {...fadeInOut}
@@ -43,7 +43,7 @@ export function Nav(props: NavProps) {
                   hoveredIndex !== null && hoveredIndex !== index ? 0.5 : 1,
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className={cn(classes.li, "px-2 max-md:hidden", { "!block": inFooter})}
+              className={cn(classes.li, "px-2 max-md:hidden")}
             >
               {item}
               {/* {typeof item === "string" ? (
@@ -60,5 +60,5 @@ export function Nav(props: NavProps) {
 }
 
 const classes = {
-  li: "uppercase text-[10px]",
+  li: "uppercase text-[12px] text-black",
 }

@@ -2,7 +2,6 @@ import { playfair } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { opacity } from "./animation"
 
 export function Heading() {
   const container = useRef(null)
@@ -13,9 +12,11 @@ export function Heading() {
   const slideUp = {
     initial: {
       y: "100%",
+      skewY: "10deg",
     },
     open: (i: number) => ({
       y: "0%",
+      skewY: "0deg",
       transition: {
         duration: 1,
         delay: 0.1 * i,
@@ -24,6 +25,7 @@ export function Heading() {
     }),
     closed: {
       y: "100%",
+      skewY: "10deg",
       transition: { duration: 1, ease: "easeInOut" },
     },
   }
@@ -33,7 +35,7 @@ export function Heading() {
       ref={container}
       className={cn(
         playfair.className,
-        "row-start-3 flex h-full items-end justify-between gap-6 overflow-hidden text-[9.2vw] font-semibold",
+        "row-start-3 flex self-end overflow-hidden justify-between gap-6 text-[9.2vw] font-semibold",
       )}
     >
       {words.map((word, index) => (

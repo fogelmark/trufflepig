@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { inter, monteserrat } from "@/lib/fonts"
+import { monteserrat } from "@/lib/fonts"
 import { Header } from "@/components"
 
 export const metadata: Metadata = {
@@ -17,10 +17,10 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className="scrollbar-thin scrollbar-track-[#f5f3ee] scrollbar-thumb-gray-400"
+      className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-300"
     >
       <body
-        className={`${monteserrat.className} text-[#f5f3ee] bg-[hsl(0,3%,4%)] antialiased`}
+        className={`${monteserrat.className} text-black bg-white antialiased`}
       >
         <Header />
         {children}

@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { cuts } from "@/lib/data"
 import { useTotalPlays } from "@/lib/hooks/use-total-plays"
+import Image from "next/image"
 
 export function Cuts() {
   const container = useRef(null)
@@ -24,7 +25,7 @@ export function Cuts() {
   }
 
   return (
-    <div className="sticky top-0 h-[1000vh] bg-[#f5f3ee]">
+    <div className="sticky top-0 h-[900vh] bg-white">
       <div className="sticky top-0 mx-auto grid h-screen w-[70vw] grid-cols-4 grid-rows-2 items-center justify-items-center gap-1">
       {/* <p className="absolute bottom-[35%] right-[70%] z-10 text-4xl font-bold text-black">Over {totalFormattedPlays} plays on Spotify.</p> */}
         {cuts.map((cut, index) => {
