@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+"use client"
+
 import { motion } from "framer-motion"
 import logo from "@/public/logo/Logo_white.png"
 import Image from "next/image"
@@ -30,7 +32,7 @@ export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
         className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
       ></motion.div>
       <Image
-        className="absolute left-1/2 top-1/4 z-[95] -translate-x-1/2 -translate-y-1/2 transform"
+        className="fixed left-1/2 top-1/2 z-[95] -translate-x-1/2 -translate-y-1/2 transform"
         src={logo}
         alt="Logo"
         width={300}

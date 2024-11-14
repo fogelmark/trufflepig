@@ -1,4 +1,4 @@
-import { Archivo_Black, Bodoni_Moda, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
+import { Archivo_Black, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
 
 export const inter = Inter({ subsets: ["latin"] })
 
