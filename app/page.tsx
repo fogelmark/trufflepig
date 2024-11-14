@@ -9,11 +9,12 @@ import { useMediaQuery } from "usehooks-ts"
 import Description from "@/components/description"
 import FeaturedSongs from "@/components/songs/featured-songs"
 import Lenis from "lenis"
+import { useOpenContext } from "@/lib/hooks/use-context"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const container = useRef(null)
-  const [isPreloaderComplete, setIsPreloaderComplete] = useState(false);
+  const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
 
   const handlePreloaderComplete = () => {
     setIsPreloaderComplete(true);

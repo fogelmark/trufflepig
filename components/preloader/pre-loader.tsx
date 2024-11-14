@@ -6,7 +6,7 @@ import Image from "next/image"
 
 const curtain = {
   initial: {
-    y: 0, // Start fully covering the screen
+    y: 0,
   },
   animate: {
     y: "100vh",
@@ -26,7 +26,7 @@ export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
       animate="animate"
       exit="exit"
       onAnimationComplete={() => handlePreloaderComplete()}
-      className="fixed inset-0 z-[99] flex h-full w-full items-center justify-center bg-gray-primary"
+      className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
     >
       <Image
         src={logo}
@@ -35,6 +35,7 @@ export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
         height={300}
         priority
         draggable={false}
+        className="z-[100]"
       />
     </motion.div>
   )

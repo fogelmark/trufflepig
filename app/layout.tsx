@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Header } from "@/components"
+import { OpenContextProvider } from "@/context/open-provider"
 import { monteserrat } from "@/lib/fonts"
 import type { Metadata } from "next"
 
@@ -20,10 +21,12 @@ export default function RootLayout({
       className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-300"
     >
       <body
-        className={`${monteserrat.className} text-black bg-white antialiased`}
+        className={`${monteserrat.className} bg-white text-black antialiased`}
       >
-        <Header />
-        {children}
+        <OpenContextProvider>
+          <Header />
+          {children}
+        </OpenContextProvider>
       </body>
     </html>
   )
