@@ -21,7 +21,7 @@ export default function RootLayout({
       className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-300"
     >
       <body
-        className={`${monteserrat.className} bg-white text-black antialiased`}
+        className={`${monteserrat.className} text-white antialiased`}
       >
         <OpenContextProvider>
           <Header />

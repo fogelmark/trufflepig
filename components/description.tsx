@@ -8,7 +8,7 @@ import React, { useRef } from "react"
 const paragraph =
   "Truffle Pig is a music publishing company based in Stockholm. By working closely with artists, we help them navigate the music industry and provide them with the tools they need to succeed."
 
-const slideUp = {
+const slideDown = {
   initial: {
     y: "-100%",
   },
@@ -46,7 +46,7 @@ export default function Description() {
             className="inline-flex overflow-hidden leading-tight"
           >
             <motion.span
-              variants={slideUp}
+              variants={slideDown}
               custom={index}
               animate={isInView ? "open" : "closed"}
               key={index}

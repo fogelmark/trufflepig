@@ -9,6 +9,7 @@ import {
   useInView,
 } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { slideUp } from "../hero/animation"
 
 function formatCount(value: number): string {
   if (value >= 1_000_000_000) {
@@ -20,30 +21,39 @@ function formatCount(value: number): string {
 }
 
 export default function FeaturedSongs() {
-  const container = useRef(null)
-  const inView = useInView(container, { once: true })
+  const cell = useRef(null)
+  const isInView = useInView(cell)
 
   const countValue = useMotionValue(1_000_000)
-  const springValue = useSpring(countValue, { stiffness: 50, damping: 30 })
+  const springValue = useSpring(countValue, { stiffness: 50, damping: 40 })
   const formattedCount = useTransform(springValue, (value) =>
     formatCount(Math.floor(value)),
   )
 
   const maxCount = 2.6 * 1_000_000_000
 
-  if (inView) {
-    countValue.set(1_000_000)
-    countValue.set(maxCount)
-  }
+  setTimeout(() => {
+    if (isInView) {
+      countValue.set(1_000_000)
+      countValue.set(maxCount)
+    }
+  }, 2000)
 
   return (
-    <div ref={container} className="relative min-h-screen bg-white">
-      <div className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-4 px-2">
-        <p className="col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase">
-          <motion.span>{formattedCount}</motion.span>+ <br />
+    <div className="relative min-h-screen bg-white">
+      <div className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-16 px-2">
+        <motion.p
+          variants={slideUp}
+          initial="closed"
+          animate={isInView ? "open" : "closed"}
+          ref={cell}
+          className="col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase"
+        >
+          <motion.span>{formattedCount}</motion.span>
+          + <br />
           streams <br />
           on Spotify
-        </p>
+        </motion.p>
         <p className="col-span-2 col-start-5 row-start-3 self-center justify-self-center px-4 text-4xl uppercase">
           More songs
         </p>
