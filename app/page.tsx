@@ -42,7 +42,7 @@ export default function Home() {
   setTimeout(() => {
     handlePreloaderComplete()
     setIsLoading(false)
-  }, 1500)
+  }, 2500)
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
