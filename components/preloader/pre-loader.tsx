@@ -12,7 +12,7 @@ const curtain = {
   },
   animate: {
     y: "100vh",
-    transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 1 },
   },
 }
 
