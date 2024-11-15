@@ -18,10 +18,10 @@ export function Footer() {
           priority
           draggable={false}
         />
-        <p className="text-[12px] row-start-8 col-span-2 ml-4 self-center uppercase text-red-primary">
+        <p className="text-[12px] row-start-8 col-span-2 ml-6 self-end mb-4 uppercase text-red-primary">
           © 2024 truffle pig publishing
         </p>
-        <p className="text-[12px] row-start-8 col-start-7 text-end mr-4 col-span-2 self-center uppercase text-red-primary">
+        <p className="text-[12px] row-start-8 col-start-7 text-end mr-6 col-span-2 self-end mb-4 uppercase text-red-primary">
           website by alex
         </p>
       </div>
