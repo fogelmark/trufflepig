@@ -1,6 +1,6 @@
 import { playfair } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { motion, useInView } from "framer-motion"
+import { motion, useInView } from "motion/react"
 import { useRef } from "react"
 
 export function Heading() {

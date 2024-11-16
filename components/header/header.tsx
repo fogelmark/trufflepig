@@ -1,10 +1,11 @@
 "use client"
 
-import { Drawer, MenuButton, Nav } from "@/components"
-import { motion } from "framer-motion"
+import { Drawer, MenuButton } from "@/components"
+import { motion } from "motion/react"
 import { useMediaQuery } from "usehooks-ts"
 import { useState } from "react"
 import { useOpenContext } from "@/lib/hooks/use-context"
+import { FixedHeader } from "./fixed-header"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
@@ -18,11 +19,9 @@ export function Header() {
   return (
     <motion.header
       data-testid="header"
-      className="absolute top-0 z-10 flex w-full items-center justify-center px-6 py-3 text-[hsl(0,3%,4%)] transition-all duration-300 md:px-10 md:py-6"
+      className="fixed top-0 z-10 grid w-full grid-cols-8 py-4 overflow-hidden mix-blend-difference transition-all duration-300"
     >
-      { isPreloaderComplete && (
-        <Nav isOpen={isOpen} />
-      )}
+      {isPreloaderComplete && <FixedHeader />}
       <MenuButton isOpen={isOpen} setOpen={setOpen} />
       <Drawer isOpen={isOpen} />
     </motion.header>

@@ -2,7 +2,7 @@
 
 "use client"
 
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import logo from "@/public/logo/Logo_white.png"
 import Image from "next/image"
 
