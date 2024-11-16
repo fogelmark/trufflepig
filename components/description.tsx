@@ -11,7 +11,7 @@ const paragraph =
 
 export default function Description() {
   const description = useRef(null)
-  const isInView = useInView(description, { once: true })
+  const isInView = useInView(description, { once: true, amount: 0.1 })
   const phrase = paragraph.split(" ")
 
   return (

@@ -6,10 +6,10 @@ import { AnimatePresence, useScroll } from "motion/react"
 import { Footer, Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
-import Description from "@/components/description"
-import FeaturedSongs from "@/components/songs/featured-songs"
-import Lenis from "lenis"
 import { useOpenContext } from "@/lib/hooks/use-context"
+import Description from "@/components/description"
+import FeaturedSongs from "@/components/featured-songs/featured-songs"
+import Lenis from "lenis"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -34,7 +34,7 @@ export default function Home() {
       requestAnimationFrame(raf)
     }
 
-    // window.scrollTo(0, 0)
+    window.scrollTo(0, 0)
 
     requestAnimationFrame(raf)
   }, [])
@@ -51,9 +51,9 @@ export default function Home() {
 
   return (
     <main ref={container} className="relative h-[200vh]">
-      {/* <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait">
         {isLoading && <PreLoader handlePreloaderComplete={handlePreloaderComplete} />}
-      </AnimatePresence> */}
+      </AnimatePresence>
       <Hero isPreloaderComplete={isPreloaderComplete} scrollYProgress={scrollYProgress} />
       <Description />
       <FeaturedSongs />
