@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import { cuts } from "@/lib/data"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 import {
   motion,
@@ -7,9 +8,7 @@ import {
   useSpring,
   useTransform,
   useInView,
-} from "framer-motion"
-import { cn } from "@/lib/utils"
-import { slideUp } from "../hero/animation"
+} from "motion/react"
 
 function formatCount(value: number): string {
   if (value >= 1_000_000_000) {
@@ -41,20 +40,56 @@ export default function FeaturedSongs() {
     }
   }, 2000)
 
+  const slide = {
+    open: {
+      y: 0,
+      transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1], delay: 0.2 },
+    },
+    closed: {
+      y: 50,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+  }
+
+  const container = {
+    hidden: { opacity: 1 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        ease: "easeInOut",
+        duration: 1,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { y: 10, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.215, 0.61, 0.355, 1] } },
+  }
+
   return (
     <div className="relative min-h-screen bg-white text-black">
       <div className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-16 px-2">
         <motion.p
-          variants={slideUp}
-          initial="closed"
-          animate={isInView ? "open" : "closed"}
+          variants={container}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
           ref={cell}
-          className="col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase"
+          className="border-2 border-red-500 col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase"
         >
-          <motion.span>{formattedCount}</motion.span>
-          + <br />
-          streams <br />
-          on Spotify
+          <motion.span className="inline-flex" variants={item}>
+            <motion.span>{formattedCount}</motion.span>
+            <span>+ </span>
+          </motion.span>
+          <br />
+          <motion.span className="inline-flex" variants={item}>
+            streams
+          </motion.span>
+          <br />
+          <motion.span className="inline-flex" variants={item}>
+            on Spotify
+          </motion.span>
         </motion.p>
         <p className="col-span-2 col-start-5 row-start-3 self-center justify-self-center px-4 text-4xl uppercase">
           More songs

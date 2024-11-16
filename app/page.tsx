@@ -2,7 +2,7 @@
 
 "use client"
 
-import { AnimatePresence, useScroll } from "framer-motion"
+import { AnimatePresence, useScroll } from "motion/react"
 import { Footer, Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
@@ -34,7 +34,7 @@ export default function Home() {
       requestAnimationFrame(raf)
     }
 
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
 
     requestAnimationFrame(raf)
   }, [])
@@ -51,9 +51,9 @@ export default function Home() {
 
   return (
     <main ref={container} className="relative h-[200vh]">
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait">
         {isLoading && <PreLoader handlePreloaderComplete={handlePreloaderComplete} />}
-      </AnimatePresence>
+      </AnimatePresence> */}
       <Hero isPreloaderComplete={isPreloaderComplete} scrollYProgress={scrollYProgress} />
       <Description />
       <FeaturedSongs />

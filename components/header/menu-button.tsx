@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Spiral as Hamburger } from "hamburger-react";
 import { fadeInOut } from "@/lib/animations";
 

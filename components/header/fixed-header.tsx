@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { slideUp } from "@/lib/animations"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { playfair } from "@/lib/fonts"
 import { useState } from "react"
 import Facebook from "@/public/svg/facebook.svg"

@@ -1,7 +1,7 @@
 "use client"
 
 import { Drawer, MenuButton } from "@/components"
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { useMediaQuery } from "usehooks-ts"
 import { useState } from "react"
 import { useOpenContext } from "@/lib/hooks/use-context"
