@@ -16,6 +16,8 @@ function formatCount(value: number): string {
     return `${(value / 1_000_000_000).toFixed(1)}B`
   } else if (value >= 1_000_000) {
     return `${Math.floor(value / 1_000_000)}M`
+  } else if (value >= 1_000) {
+    return `${Math.floor(value / 1_000)}K`
   }
   return value.toString()
 }
@@ -24,7 +26,7 @@ export default function FeaturedSongs() {
   const cell = useRef(null)
   const isInView = useInView(cell)
 
-  const countValue = useMotionValue(1_000_000)
+  const countValue = useMotionValue(0)
   const springValue = useSpring(countValue, { stiffness: 50, damping: 40 })
   const formattedCount = useTransform(springValue, (value) =>
     formatCount(Math.floor(value)),
@@ -34,13 +36,13 @@ export default function FeaturedSongs() {
 
   setTimeout(() => {
     if (isInView) {
-      countValue.set(1_000_000)
+      countValue.set(0)
       countValue.set(maxCount)
     }
   }, 2000)
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white text-black">
       <div className="mb-4 grid grid-cols-6 grid-rows-3 gap-x-2 gap-y-16 px-2">
         <motion.p
           variants={slideUp}
@@ -74,6 +76,9 @@ export default function FeaturedSongs() {
                 src={cut.image}
                 alt="Cover"
                 fill
+                loading="lazy"
+                quality={100}
+                sizes="100vw"
                 draggable={false}
                 className="object-contain grayscale transition-all duration-500 ease-in-out group-hover:scale-[1.03] group-hover:cursor-pointer hover:grayscale-0"
               />
