@@ -1,5 +1,6 @@
 /* eslint-disable */
 
+import { headingNowTrial46Bold } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "motion/react"
 import { useRef } from "react"
@@ -35,6 +36,7 @@ export function Heading() {
     <h1
       ref={container}
       className={cn(
+        headingNowTrial46Bold.className,
         "row-start-3 w-full font-trial46bold lowercase flex self-end overflow-hidden justify-between text-[14vw]",
       )}
     >

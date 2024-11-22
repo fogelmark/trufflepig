@@ -26,9 +26,6 @@ const config: Config = {
         "grape-curve": "url(/images/grape-curve.jpg)",
         "abstract-red": "url(/images/abstract-red.jpg)",
       },
-      fontFamily: {
-        trial46bold: ["HeadingNowTrial46Bold", "sans-serif"],
-      },
     },
   },
   plugins: [

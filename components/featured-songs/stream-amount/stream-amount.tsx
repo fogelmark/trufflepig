@@ -11,7 +11,7 @@ import { useRef } from "react"
 
 export function StreamAmount() {
   const cell = useRef(null)
-  const isInView = useInView(cell, { amount: 1 })
+  const isInView = useInView(cell, { amount: 1, once: true })
 
   const countValue = useMotionValue(0)
   const springValue = useSpring(countValue, { stiffness: 50, damping: 40 })
@@ -32,7 +32,7 @@ export function StreamAmount() {
       initial="hidden"
       animate={isInView ? "show" : "hidden"}
       ref={cell}
-      className="col-span-3 col-start-4 row-start-1 self-center px-4 text-end text-4xl uppercase"
+      className="col-start-3 row-start-1 self-center px-4 text-end text-4xl uppercase text-black"
     >
       <motion.span className="inline-flex" variants={item}>
         <motion.span>{formattedCount}</motion.span>
