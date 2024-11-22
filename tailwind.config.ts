@@ -15,9 +15,19 @@ const config: Config = {
       colors: {
         "red-primary": "#f34848",
         "gray-primary": "#1d2120",
+        "gray-bg": "#0f0e0e",
       },
       backgroundImage: {
         "noise": "url(/svg/noise.svg)",
+        "concrete": "url(/images/green-concrete-wall.jpg)",
+        "abstract-neutral": "url(/images/abstract-neutral.jpg)",
+        "green-grunge": "url(/images/green-grunge.jpg)",
+        "purple-watercolor": "url(/images/purple-watercolor.jpg)",
+        "grape-curve": "url(/images/grape-curve.jpg)",
+        "abstract-red": "url(/images/abstract-red.jpg)",
+      },
+      fontFamily: {
+        trial46bold: ["HeadingNowTrial46Bold", "sans-serif"],
       },
     },
   },

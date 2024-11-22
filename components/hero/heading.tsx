@@ -1,4 +1,5 @@
-import { playfair } from "@/lib/fonts"
+/* eslint-disable */
+
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "motion/react"
 import { useRef } from "react"
@@ -6,7 +7,7 @@ import { useRef } from "react"
 export function Heading() {
   const container = useRef(null)
   const isInView = useInView(container, { once: true })
-  const heading = "Truffle Pig Publishing"
+  const heading = "truffle pig publishing"
   const words = heading.split(" ")
 
   const slideUp = {
@@ -34,8 +35,7 @@ export function Heading() {
     <h1
       ref={container}
       className={cn(
-        playfair.className,
-        "row-start-3 flex self-end overflow-hidden justify-between gap-6 text-[9.2vw] font-semibold",
+        "row-start-3 w-full font-trial46bold lowercase flex self-end overflow-hidden justify-between text-[14vw]",
       )}
     >
       {words.map((word, index) => (

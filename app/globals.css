@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'HeadingNowTrial24Regular';
+  src: url('/fonts/HeadingNowTrial-24Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HeadingNowTrial27Extrabold';
+  src: url('/fonts/HeadingNowTrial-27Extrabold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HeadingNowTrial46Bold';
+  src: url('/fonts/HeadingNowTrial-46Bold.ttf') format('truetype');
+}

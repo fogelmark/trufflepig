@@ -1,4 +1,16 @@
 import { Archivo_Black, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
+import local from "next/font/local"
+
+export const headingNowTrial46Bold = local({
+  src: [
+    {
+      path: '../public/fonts/HeadingNowTrial-46Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  display: 'swap',
+});
 
 export const inter = Inter({ subsets: ["latin"] })
 

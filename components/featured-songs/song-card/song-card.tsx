@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { cn } from "@/lib/utils"
 import { cuts } from "@/lib/data"
 import Image from "next/image"
@@ -22,8 +24,8 @@ function Card({ cut, index }: Props) {
   return (
     <motion.article
       ref={card}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      // initial={{ opacity: 0 }}
+      // animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{
         duration: 0.3,
         delay: index * 0.2,
