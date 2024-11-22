@@ -2,9 +2,9 @@
 
 import { cn } from "@/lib/utils"
 import { cuts } from "@/lib/data"
+import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import React, { useRef } from "react"
-import { motion, useInView } from "framer-motion"
 
 interface Props {
   cut: {
@@ -24,18 +24,8 @@ function Card({ cut, index }: Props) {
   return (
     <motion.article
       ref={card}
-      // initial={{ opacity: 0 }}
-      // animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{
-        duration: 0.3,
-        delay: index * 0.2,
-      }}
       className={cn(
         "group",
-        { "col-span-2 col-start-2 row-start-1": cut.id === 1 },
-        { "col-span-2 col-start-5 row-start-2": cut.id === 3 },
-        { "col-span-2 col-start-3 row-start-3": cut.id === 2 },
-        { "col-span-2 col-start-1 row-start-3": cut.id === 4 },
       )}
     >
       <div className="relative aspect-square overflow-hidden rounded-sm">
@@ -66,7 +56,7 @@ function Card({ cut, index }: Props) {
 export function SongCard() {
   return (
     <>
-      {cuts.slice(0, 4).map((cut, index) => (
+      {cuts.map((cut, index) => (
         <Card key={index} cut={cut} index={index} />
       ))}
     </>
