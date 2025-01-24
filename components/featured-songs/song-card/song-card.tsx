@@ -3,16 +3,16 @@
 import { cn } from "@/lib/utils"
 import { cuts } from "@/lib/data"
 import { motion, useInView } from "framer-motion"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import React, { useRef } from "react"
 
 interface Props {
   cut: {
     id: number
-    image: string
+    image: string | StaticImageData
     title: string
     artist: string
-    spotifyPlays: string
+    spotifyPlays?: string | null
   }
   index: number
 }

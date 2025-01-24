@@ -1,6 +1,6 @@
 import { motion, useInView } from "motion/react"
-import { useRef } from "react"
 import { slideUp, slideUpDelayed } from "./animation"
+import { useRef } from "react"
 
 export function Description() {
   const container = useRef(null)
@@ -8,7 +8,7 @@ export function Description() {
 
   return (
     <div
-      className="row-start-4 flex text-end flex-col justify-between overflow-hidden self-start"
+      className="row-start-3 flex text-end flex-col justify-between overflow-hidden self-center"
       ref={container}
     >
       <motion.p
