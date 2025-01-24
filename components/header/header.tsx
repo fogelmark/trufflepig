@@ -7,19 +7,22 @@ import { FixedHeader } from "./fixed-header"
 import { motion } from "motion/react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
   const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
-  
+  const pathname = usePathname()
+
+  const isHomePage = pathname === "/"
+
   useEffect(() => {
-    if (isPreloaderComplete) {
-      return
+    if (!isHomePage) {
+      setIsPreloaderComplete(true)
     }
-    setIsPreloaderComplete(true)
-  }, [])
+  }, [isHomePage, setIsPreloaderComplete])
 
   if (mediaQueryMatches && isOpen) {
     setOpen(false)
