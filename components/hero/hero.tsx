@@ -1,10 +1,10 @@
 "use client"
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react"
-import { useRef } from "react"
-import { Heading } from "./heading"
-import { Description } from "./description"
 import { Subgrid } from "./subgrid"
+import { useRef } from "react"
+import Image from "next/image"
+import logo from "@/public/logo/logo_black_02.png"
 
 interface HeroProps {
   scrollYProgress: MotionValue<number>
@@ -40,8 +40,16 @@ export function Hero({ scrollYProgress, isPreloaderComplete }: HeroProps) {
         >
           {isPreloaderComplete && (
             <>
-              <Heading />
-              <Description />
+              <Image
+                className="fixed left-1/2 top-1/2 z-[95] 2xl:w-[600px] 2xl:h-[600px] -translate-x-1/2 -translate-y-1/2 transform"
+                src={logo}
+                alt="Logo"
+                width={300}
+                height={300}
+                priority
+                loading="eager"
+                draggable={false}
+              />
               <Subgrid />
             </>
           )}

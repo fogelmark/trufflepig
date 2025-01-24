@@ -3,12 +3,11 @@
 "use client"
 
 import { AnimatePresence, useScroll } from "motion/react"
-import { Footer, Hero, PreLoader } from "@/components"
+import { Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
 import Description from "@/components/description"
-import FeaturedSongs from "@/components/featured-songs/featured-songs"
 import Lenis from "lenis"
 
 export default function Home() {
@@ -16,33 +15,32 @@ export default function Home() {
   const container = useRef(null)
   const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
 
-  const handlePreloaderComplete = () => {
-    setIsPreloaderComplete(true);
-  };
-
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   })
 
   useEffect(() => {
+    if (isPreloaderComplete) {
+      setIsLoading(false)
+      return
+    }
+
     const lenis = new Lenis()
 
     function raf(time: number) {
       lenis.raf(time)
-
       requestAnimationFrame(raf)
     }
 
     window.scrollTo(0, 0)
-
     requestAnimationFrame(raf)
-  }, [])
 
-  setTimeout(() => {
-    handlePreloaderComplete()
-    setIsLoading(false)
-  }, 2500)
+    setTimeout(() => {
+      setIsPreloaderComplete(true)
+      setIsLoading(false)
+    }, 2500)
+  }, [isPreloaderComplete, setIsPreloaderComplete])
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
@@ -52,12 +50,17 @@ export default function Home() {
   return (
     <main ref={container} className="relative h-[200vh]">
       <AnimatePresence mode="wait">
-        {isLoading && <PreLoader handlePreloaderComplete={handlePreloaderComplete} />}
+        {!isPreloaderComplete && isLoading && (
+          <PreLoader
+            handlePreloaderComplete={() => setIsPreloaderComplete(true)}
+          />
+        )}
       </AnimatePresence>
-      <Hero isPreloaderComplete={isPreloaderComplete} scrollYProgress={scrollYProgress} />
+      <Hero
+        isPreloaderComplete={isPreloaderComplete}
+        scrollYProgress={scrollYProgress}
+      />
       <Description />
-      <FeaturedSongs />
-      <Footer />
     </main>
   )
 }

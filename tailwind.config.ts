@@ -25,6 +25,8 @@ const config: Config = {
         "purple-watercolor": "url(/images/purple-watercolor.jpg)",
         "grape-curve": "url(/images/grape-curve.jpg)",
         "abstract-red": "url(/images/abstract-red.jpg)",
+        "forest": "url(/images/cartoon-forest.jpg)",
+        "10": "url(/images/10.jpg)",
       },
     },
   },

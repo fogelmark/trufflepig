@@ -1,4 +1,4 @@
-import { Archivo_Black, Inter, Lora, Montserrat, Playfair_Display, Poppins } from "next/font/google"
+import { Archivo, Archivo_Black, Archivo_Narrow, Arimo, Fjalla_One, Inter, Lora, Montserrat, Playfair_Display, Poppins, Roboto, Yantramanav } from "next/font/google"
 import local from "next/font/local"
 
 export const headingNowTrial46Bold = local({
@@ -37,5 +37,35 @@ export const playfair = Playfair_Display({
 
 export const lora = Lora({
   weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+})
+
+export const fjalla = Fjalla_One({
+  weight: ["400"],
+  subsets: ["latin"],
+})
+
+export const arimo = Arimo({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+})
+
+export const archivo = Archivo({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+})
+
+export const archivo_narow = Archivo_Narrow({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+})
+
+export const yamata = Yantramanav({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+})
+
+export const roboto = Roboto({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 })

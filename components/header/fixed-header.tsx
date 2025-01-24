@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils"
 import { fadeInOut, slideUp } from "@/lib/animations"
 import { motion } from "motion/react"
 import { useState } from "react"
+import { headingNowTrial46Bold } from "@/lib/fonts"
 import Facebook from "@/public/svg/facebook.svg"
 import Instagram from "@/public/svg/instagram.svg"
 import Youtube from "@/public/svg/youtube.svg"
-import { headingNowTrial46Bold } from "@/lib/fonts"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 type NavProps = {
   isOpen?: boolean
@@ -21,17 +23,22 @@ export function FixedHeader(props: NavProps) {
   const { isOpen } = props
   const [itemIndex, setItemIndex] = useState<number | null>(null)
   const [socialIndex, setSocialIndex] = useState<number | null>(null)
+  const pathname = usePathname()
 
-  const navItems = ["About", "Songs", "Contact"]
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "Writers", href: "/writers" },
+    { name: "Songs", href: "/songs" },
+  ]
   const socials = [
     { Component: Instagram, alt: "Instagram" },
-    { Component: Youtube, alt: "Youtube" },
-    { Component: Facebook, alt: "Facebook" },
+    // { Component: Youtube, alt: "Youtube" },
+    // { Component: Facebook, alt: "Facebook" },
   ]
 
   return (
     <>
-      <motion.nav className="col-span-2 self-center">
+      <motion.nav className="col-span-2 self-center tracking-[-0.03em]">
         {!isOpen && (
           <ul className={cn("ml-4 flex items-center")}>
             {navItems.map((item, index) => (
@@ -47,11 +54,16 @@ export function FixedHeader(props: NavProps) {
                 className={cn(
                   classes.li,
                   "cursor-pointer overflow-hidden px-2 max-md:hidden",
+                  pathname === item.href
+                    ? "underline underline-offset-2"
+                    : "text-gray-500",
                 )}
               >
-                <motion.span className="block" {...fadeInOut}>
-                  {item}
-                </motion.span>
+                <Link href={item.href}>
+                  <motion.span className="block" {...fadeInOut}>
+                    {item.name}
+                  </motion.span>
+                </Link>
               </motion.li>
             ))}
           </ul>
@@ -64,8 +76,8 @@ export function FixedHeader(props: NavProps) {
           "col-span-2 col-start-4 cursor-pointer justify-self-center overflow-hidden",
         )}
       >
-        <motion.span className="block px-1" {...fadeInOut}>
-          truffle pig publishing
+        <motion.span className="block px-1 text-2xl" {...fadeInOut}>
+          punch publishing
         </motion.span>
       </motion.p>
 
@@ -101,5 +113,5 @@ export function FixedHeader(props: NavProps) {
 }
 
 const classes = {
-  li: "uppercase text-[12px] text-white",
+  li: "uppercase text-xs font-bold font-medium text-black",
 }

@@ -8,7 +8,7 @@ import { useRef } from "react"
 export function Heading() {
   const container = useRef(null)
   const isInView = useInView(container, { once: true })
-  const heading = "truffle pig publishing"
+  const heading = "punch publishing"
   const words = heading.split(" ")
 
   const slideUp = {
