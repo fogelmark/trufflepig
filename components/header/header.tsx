@@ -7,12 +7,19 @@ import { FixedHeader } from "./fixed-header"
 import { motion } from "motion/react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 
 export function Header() {
   const [isOpen, setOpen] = useState(false)
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
-  const { isPreloaderComplete } = useOpenContext()
+  const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
+  
+  useEffect(() => {
+    if (isPreloaderComplete) {
+      return
+    }
+    setIsPreloaderComplete(true)
+  }, [])
 
   if (mediaQueryMatches && isOpen) {
     setOpen(false)
