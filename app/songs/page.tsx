@@ -4,27 +4,15 @@
 
 import { motion, useInView } from "motion/react"
 import { songs } from "@/lib/songs"
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import Apple from "@/public/svg/apple.svg"
 import Image from "next/image"
-import Lenis from "lenis"
 import Soundcloud from "@/public/svg/soundcloud.svg"
 import Spotify from "@/public/svg/spotify.svg"
+import useLenis from "@/lib/hooks/useLenis"
 
 export default function Page() {
-  useEffect(() => {
-    const lenis = new Lenis()
-
-    function raf(time: number) {
-      lenis.raf(time)
-
-      requestAnimationFrame(raf)
-    }
-
-    window.scrollTo(0, 0)
-
-    requestAnimationFrame(raf)
-  }, [])
+  useLenis()
 
   const container = useRef(null)
   const isInView = useInView(container, { once: true, amount: 0.3 })

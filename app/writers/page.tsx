@@ -1,33 +1,19 @@
 "use client"
 
-import { cn } from "@/lib/utils"
 import { fadeInOut } from "@/lib/animations"
 import { motion } from "motion/react"
 import { writers } from "@/lib/writers"
 import Image from "next/image"
-import Lenis from "lenis"
-import React, { useEffect } from "react"
+import useLenis from "@/lib/hooks/useLenis"
 
 export default function Page() {
-  useEffect(() => {
-    const lenis = new Lenis()
-
-    function raf(time: number) {
-      lenis.raf(time)
-
-      requestAnimationFrame(raf)
-    }
-
-    window.scrollTo(0, 0)
-
-    requestAnimationFrame(raf)
-  }, [])
+  useLenis()
 
   return (
-    <div className="mx-auto flex min-h-screen gap-2 px-4 py-36 tracking-[-0.03em] text-black 2xl:w-1/2">
+    <motion.div className="mx-auto flex min-h-screen gap-2 px-4 py-36 tracking-[-0.03em] text-black 2xl:w-1/2" {...fadeInOut}>
       {writers.map((writer, index) => (
         <section key={index} className="flex w-1/2 flex-col gap-2">
-          <motion.div className="w-full" {...fadeInOut}>
+          <motion.div className="w-full">
             <Image
               src={writer.image}
               alt={writer.name}
@@ -43,7 +29,7 @@ export default function Page() {
           <p className="text-sm">{text}</p>
         </section>
       ))}
-    </div>
+    </motion.div>
   )
 }
 
