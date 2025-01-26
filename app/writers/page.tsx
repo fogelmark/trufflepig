@@ -3,10 +3,9 @@
 import { cn } from "@/lib/utils"
 import { fadeInOut } from "@/lib/animations"
 import { motion } from "motion/react"
-import dag from "@/public/images/dag.png"
+import { writers } from "@/lib/writers"
 import Image from "next/image"
 import Lenis from "lenis"
-import nikki from "@/public/images/nikki.webp"
 import React, { useEffect } from "react"
 
 export default function Page() {
@@ -25,56 +24,25 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="flex tracking-[-0.03em] 2xl:w-1/2 mx-auto min-h-screen gap-2 px-4 py-36 text-black">
-      <section className="flex w-1/2 flex-col gap-2">
-        <motion.div className="w-full" {...fadeInOut}>
-          <Image
-            src={nikki}
-            alt="nikki"
-            placeholder="blur"
-            className="object-contain"
-            loading="eager"
-          />
-        </motion.div>
-        <div className="flex items-center justify-between">
-          <h2
-            className={cn(
-              "text-4xl font-medium",
-            )}
-          >
-            Nicklas Lif
-          </h2>
-          <p className="text-xs uppercase text-gray-500">
-            artist / writer / producer
-          </p>
-        </div>
-        <p className="text-sm">
-          {text}
-        </p>
-      </section>
-      <section className="flex w-1/2 flex-col gap-2">
-        <motion.div className="w-full" {...fadeInOut}>
-          <Image
-            src={dag}
-            placeholder="blur"
-            alt="nikki"
-            className="object-contain"
-          />
-        </motion.div>
-        <div className="flex items-center justify-between">
-          <h2
-            className={cn(
-              "text-4xl font-medium",
-            )}
-          >
-            Dag Lundberg
-          </h2>
-          <p className="text-xs uppercase text-gray-500">writer / producer</p>
-        </div>
-        <p className="text-sm">
-          {text}
-        </p>
-      </section>
+    <div className="mx-auto flex min-h-screen gap-2 px-4 py-36 tracking-[-0.03em] text-black 2xl:w-1/2">
+      {writers.map((writer, index) => (
+        <section key={index} className="flex w-1/2 flex-col gap-2">
+          <motion.div className="w-full" {...fadeInOut}>
+            <Image
+              src={writer.image}
+              alt={writer.name}
+              placeholder="blur"
+              className="object-contain"
+              loading="eager"
+            />
+          </motion.div>
+          <div className="flex items-center justify-between">
+            <h2 className="text-4xl font-medium">{writer.name}</h2>
+            <p className="text-xs uppercase text-gray-500">{writer.role}</p>
+          </div>
+          <p className="text-sm">{text}</p>
+        </section>
+      ))}
     </div>
   )
 }
