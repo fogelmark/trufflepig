@@ -3,7 +3,7 @@
 "use client"
 
 import { motion, useInView } from "motion/react"
-import { songs } from "@/lib/data"
+import { songs } from "@/lib/songs"
 import { useEffect, useRef } from "react"
 import Apple from "@/public/svg/apple.svg"
 import Image from "next/image"
