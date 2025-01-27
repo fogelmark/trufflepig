@@ -50,11 +50,11 @@ export default function Home() {
   return (
     <main ref={container} className="relative h-[200vh]">
       <AnimatePresence mode="wait">
-        {!isPreloaderComplete && isLoading && (
-          <PreLoader
-            handlePreloaderComplete={() => setIsPreloaderComplete(true)}
-          />
-        )}
+        <PreLoader
+          handlePreloaderComplete={() => setIsPreloaderComplete(true)}
+        />
+        {/* {!isPreloaderComplete && isLoading && (
+        )} */}
       </AnimatePresence>
       <Hero
         isPreloaderComplete={isPreloaderComplete}

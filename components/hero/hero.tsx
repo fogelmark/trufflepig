@@ -31,8 +31,8 @@ export function Hero({ scrollYProgress, isPreloaderComplete }: HeroProps) {
       style={{ containerType: "inline-size" }}
     >
       <motion.div
-        className="bg-white bg-cover px-10 text-black"
-        style={{ scaleX, filter }}
+        className="bg-white px-10 text-black"
+        // style={{ scaleX, filter }}
       >
         <motion.div
           className="grid h-screen grid-flow-row grid-cols-1 items-center py-4"
