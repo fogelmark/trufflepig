@@ -33,7 +33,8 @@ export function Header() {
       data-testid="header"
       className="fixed top-0 z-10 grid w-full grid-cols-8 bg-white py-4 px-6 overflow-hidden transition-all duration-300"
     >
-      {isPreloaderComplete && <FixedHeader />}
+      {/* {isPreloaderComplete && <FixedHeader />} */}
+      <FixedHeader />
       {/* <MenuButton isOpen={isOpen} setOpen={setOpen} />
       <Drawer isOpen={isOpen} /> */}
     </motion.header>

@@ -4,14 +4,14 @@
 
 import { cn } from "@/lib/utils"
 import { fadeInOut, slideUp } from "@/lib/animations"
-import { motion } from "motion/react"
-import { useState } from "react"
 import { headingNowTrial46Bold } from "@/lib/fonts"
+import { motion } from "motion/react"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
 import Facebook from "@/public/svg/facebook.svg"
 import Instagram from "@/public/svg/instagram.svg"
-import Youtube from "@/public/svg/youtube.svg"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Youtube from "@/public/svg/youtube.svg"
 
 type NavProps = {
   isOpen?: boolean

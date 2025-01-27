@@ -2,7 +2,7 @@
 
 "use client"
 
-import { easeOut, motion } from "framer-motion"
+import { motion } from "framer-motion"
 
 const curtain = {
   initial: {
@@ -16,7 +16,7 @@ const curtain = {
       "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
     ],
     transition: {
-      duration: 1.5,
+      duration: 1,
       ease: [0.215, 0.61, 0.355, 1],
       times: [0, 0.2, 0.8, 1],
     },
