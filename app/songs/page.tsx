@@ -48,7 +48,6 @@ export default function Page() {
                       alt={song.artist}
                       width={80}
                       height={80}
-                      className="grayscale"
                     />
                   )}
                   <div className="grid h-full grid-cols-2 items-center border-b">
