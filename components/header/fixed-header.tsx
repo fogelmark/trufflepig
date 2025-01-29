@@ -74,7 +74,7 @@ export function FixedHeader(props: NavProps) {
       <motion.p
         className={cn(
           headingNowTrial46Bold.className,
-          "col-span-2 col-start-4 cursor-pointer justify-self-center overflow-hidden",
+          "col-span-2 col-start-4 cursor-pointer self-center justify-self-center overflow-hidden",
         )}
       >
         <motion.span className="block px-1 text-2xl" {...fadeInOut}>
