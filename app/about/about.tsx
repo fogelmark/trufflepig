@@ -8,7 +8,7 @@ import React, { useRef } from "react"
 const paragraph =
   "Punch Publishing is a music publishing company based in Stockholm. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
-export default function Description() {
+export default function About() {
   const description = useRef(null)
   const isInView = useInView(description, { once: true, amount: 0.3 })
   const phrase = paragraph.split(" ")

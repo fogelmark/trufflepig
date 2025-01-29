@@ -27,6 +27,7 @@ export function FixedHeader(props: NavProps) {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Writers", href: "/writers" },
     { name: "Songs", href: "/songs" },
   ]

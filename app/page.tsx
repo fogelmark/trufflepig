@@ -9,6 +9,7 @@ import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
 import Description from "@/components/description"
 import Lenis from "lenis"
+import Showcase from "@/components/showcase/showcase"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,7 +49,8 @@ export default function Home() {
   })
 
   return (
-    <main ref={container} className="relative h-[200vh]">
+    // <main ref={container} className="relative min-h-screen">
+    <main ref={container} className="relative min-h-screen">
       <AnimatePresence mode="wait">
         {!isPreloaderComplete && isLoading && (
           <PreLoader
@@ -60,7 +62,8 @@ export default function Home() {
         isPreloaderComplete={isPreloaderComplete}
         scrollYProgress={scrollYProgress}
       />
-      <Description />
+      {/* <Description />
+      <Showcase /> */}
     </main>
   )
 }

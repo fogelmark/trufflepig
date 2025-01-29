@@ -1,70 +1,27 @@
 "use client"
 
-import { motion, MotionValue, useScroll, useTransform } from "motion/react"
+import { MotionValue } from "motion/react"
 import { Subgrid } from "./subgrid"
-import { useRef } from "react"
 import Image from "next/image"
 import logo from "@/public/logo/logo_black_02.png"
 import Intro from "./intro"
-import { Description } from "./description"
-import { Heading } from "./heading"
 
 interface HeroProps {
   scrollYProgress: MotionValue<number>
   isPreloaderComplete: boolean
 }
 
-export function Hero({ scrollYProgress, isPreloaderComplete }: HeroProps) {
-  const container = useRef(null)
-  const { scrollY } = useScroll()
-
-  const filter = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["brightness(1)", "brightness(0.2)"],
-  )
-
-  const scaleX = useTransform(scrollYProgress, [0, 1], [1, 0.95])
-  const y = useTransform(scrollY, [0, 1000], ["0%", "-60%"])
-
+export function Hero({ isPreloaderComplete }: HeroProps) {
   return (
-    <div
-      ref={container}
-      className="sticky bg-black top-0 h-screen w-full"
-      style={{ containerType: "inline-size" }}
-    >
-      <motion.div
-        className="bg-white px-10 text-black"
-        style={{ scaleX, filter }}
-      >
-        <motion.div
-          className="grid h-screen grid-flow-row grid-cols-1 items-center py-4"
-          style={{ y }}
-        >
-          {isPreloaderComplete && (
-            <>
-              {/* <Image
-                className="fixed left-1/2 top-1/2 z-[95] 2xl:w-[600px] 2xl:h-[600px] -translate-x-1/2 -translate-y-1/2 transform"
-                src={logo}
-                alt="Logo"
-                width={300}
-                height={300}
-                priority
-                loading="eager"
-                draggable={false}
-              /> */}
-              {/* <h1 className="row-start-3 w-[60%] justify-self-center text-center text-5xl font-bold uppercase text-black">
-              We are a creative, entertainment, media & brand communications
-              company
-            </h1> */}
-
-              <Intro />
-              {/* <Heading /> */}
-            </>
-          )}
-          <Subgrid />
-        </motion.div>
-      </motion.div>
+    <div className="sticky top-0 h-screen w-full px-10">
+      <div className="grid h-screen grid-flow-row grid-cols-1 items-center py-4">
+        {isPreloaderComplete && (
+          <>
+            <Intro />
+          </>
+        )}
+        <Subgrid />
+      </div>
     </div>
   )
 }

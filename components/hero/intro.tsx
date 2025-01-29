@@ -10,7 +10,6 @@ const sentences = [
   "entertainment, media & brand",
   "communications company",
 ]
-  
 
 export default function Intro() {
   const container = useRef(null)
@@ -38,11 +37,14 @@ export default function Intro() {
     <h1
       ref={container}
       className={cn(
-        "flex w-[60%] justify-center justify-self-center text-center row-start-3 text-5xl font-medium uppercase flex-wrap items-center gap-x-2 tracking-[-0.03em] text-[hsl(0,3%,4%)]",
+        "row-start-3 flex w-[60%] flex-wrap justify-center gap-x-2 justify-self-center text-center text-5xl font-medium uppercase tracking-[-0.03em] text-[hsl(0,3%,4%)]",
       )}
     >
       {sentences.map((sentence, index) => (
-        <span key={index} className="inline-flex overflow-hidden relative leading-[3.5rem]">
+        <span
+          key={index}
+          className="relative inline-flex overflow-hidden leading-[3.5rem]"
+        >
           <motion.span
             variants={slideUp}
             custom={index}

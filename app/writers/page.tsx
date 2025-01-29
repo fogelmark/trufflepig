@@ -5,14 +5,25 @@ import { motion } from "motion/react"
 import { writers } from "@/lib/writers"
 import Image from "next/image"
 import useLenis from "@/lib/hooks/useLenis"
+import { cn } from "@/lib/utils"
 
 export default function Page() {
   useLenis()
 
   return (
-    <motion.div className="mx-auto flex min-h-screen gap-2 px-4 py-36 tracking-[-0.03em] text-black 2xl:w-1/2" {...fadeInOut}>
+    <motion.div
+      // className="mx-auto grid min-h-screen grid-cols-2 grid-rows-[auto_1fr] gap-x-2 gap-y-10 px-4 pt-36 tracking-[-0.03em] text-black 2xl:w-1/2"
+      className="mx-auto flex min-h-screen grid-cols-2 grid-rows-[auto_1fr] gap-x-2 gap-y-10 px-4 mt-36 mb-10 tracking-[-0.03em] text-black 2xl:w-1/2"
+      {...fadeInOut}
+    >
+      {/* <h2 className="text-4xl font-medium">Writers</h2> */}
       {writers.map((writer, index) => (
-        <section key={index} className="flex w-1/2 flex-col gap-2">
+        <section
+          key={index}
+          className={cn("flex w-full flex-col gap-2", {
+            "row-start-2": index === 0 || index === 1,
+          })}
+        >
           <motion.div className="w-full">
             <Image
               src={writer.image}

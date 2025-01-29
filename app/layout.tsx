@@ -23,7 +23,7 @@ export default function RootLayout({
         <OpenContextProvider>
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </OpenContextProvider>
       </body>
     </html>

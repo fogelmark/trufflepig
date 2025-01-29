@@ -19,7 +19,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="mb-10 min-h-screen bg-white px-20 pt-40 tracking-[-0.03em]">
+      <div className="mb-10 min-h-screen bg-white px-20 mt-36 tracking-[-0.03em]">
         <ul
           ref={container}
           className="grid min-h-screen w-fit grid-cols-1 gap-4"
