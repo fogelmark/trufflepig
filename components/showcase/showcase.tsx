@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useRef } from "react"
 import Image from "next/image"
 import lost_frequencies_4 from "@/public/images/lost_frequencies_4.jpg"

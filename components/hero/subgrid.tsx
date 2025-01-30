@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import { fadeInOut } from "@/lib/animations"
-import Image from "next/image"
-import logo from "@/public/logo/logo_black_02.png"
 
 export function Subgrid() {
   const [time, setTime] = useState("")

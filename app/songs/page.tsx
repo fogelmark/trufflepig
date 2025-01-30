@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { fira_code } from "@/lib/fonts"
-import { easeOut, motion } from "motion/react"
+import { motion } from "motion/react"
 import { songs } from "@/lib/songs"
 import { useEffect, useRef, useState } from "react"
 import Apple from "@/public/svg/apple.svg"
