@@ -2,45 +2,39 @@
 
 "use client"
 
-import { motion } from "motion/react"
-import logo from "@/public/logo/Logo_white.png"
-import Image from "next/image"
+import { motion } from "framer-motion"
 
 const curtain = {
   initial: {
-    y: 0,
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
   },
   animate: {
-    y: "100vh",
-    transition: { duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 1 },
+    clipPath: [
+      "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      "polygon(0 0, 100% 0, 100% 90%, 0 85%)",
+      "polygon(0 0, 100% 0, 100% 20%, 0 15%)",
+      "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
+    ],
+    transition: {
+      duration: 1,
+      ease: [0.215, 0.61, 0.355, 1],
+      times: [0, 0.2, 0.8, 1],
+    },
   },
 }
 
 interface PreLoaderProps {
-  handlePreloaderComplete: () => void
+  handlePreloaderComplete?: () => void
 }
 
 export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
   return (
-    <>
-      <motion.div
-        variants={curtain}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        onAnimationComplete={() => handlePreloaderComplete()}
-        className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
-      ></motion.div>
-      <Image
-        className="fixed left-1/2 top-1/2 z-[95] -translate-x-1/2 -translate-y-1/2 transform"
-        src={logo}
-        alt="Logo"
-        width={300}
-        height={300}
-        priority
-        loading="eager"
-        draggable={false}
-      />
-    </>
+    <motion.div
+      variants={curtain}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
+    />
   )
 }

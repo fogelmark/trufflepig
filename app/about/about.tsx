@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 "use client"
 
-import { slideDown } from "@/lib/animations"
+import useLenis from "@/lib/hooks/useLenis"
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "motion/react"
 import React, { useRef } from "react"
@@ -8,18 +10,36 @@ import React, { useRef } from "react"
 const paragraph =
   "Punch Publishing is a music publishing company based in Stockholm. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
-export default function Description() {
+export default function About() {
+  useLenis()
   const description = useRef(null)
-  const isInView = useInView(description, { once: true, amount: 0.3 })
+  const isInView = useInView(description, { once: true, amount: 1 })
   const phrase = paragraph.split(" ")
 
+  const slideDown = {
+    initial: {
+      y: "-100%",
+    },
+    open: (i: number) => ({
+      y: "0%",
+      transition: {
+        duration: 0.5,
+        ease: [0.215, 0.61, 0.355, 1],
+        delay: 0.02 * i,
+      },
+    }),
+    closed: {
+      y: "-100%",
+      transition: { duration: 0.5 },
+    },
+  }
+
   return (
-    <div
-      // className="sticky top-0 flex h-screen flex-col items-center bg-red-500"
-      className="sticky top-0 flex h-screen flex-col items-center"
+    <motion.div
+      className="relative flex h-screen flex-col items-center"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
     >
-      <div className="flex fixed top-0 flex-grow items-center justify-center bg-white h-screen">
+      <div className="flex h-screen flex-grow items-center justify-center bg-white">
         <p
           ref={description}
           className={cn(
@@ -34,6 +54,7 @@ export default function Description() {
               <motion.span
                 variants={slideDown}
                 custom={index}
+                initial="closed"
                 animate={isInView ? "open" : "closed"}
                 key={index}
               >
@@ -43,6 +64,6 @@ export default function Description() {
           ))}
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }

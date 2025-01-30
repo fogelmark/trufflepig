@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
     <div
-      className="relative h-[40vh] border-t-[1px] border-gray-300"
+      className="relative h-[30vh] border-t-[1px] border-gray-300 bg-white"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed bottom-0 grid h-[40vh] w-full grid-cols-8 grid-rows-8 items-center tracking-[-0.03em]">
-        <ul className="col-start-2 row-start-2 flex gap-4">
+      <div className="fixed bottom-0 grid h-[30vh] w-full grid-cols-8 grid-rows-8 items-center">
+        <ul className="col-start-2 row-start-3 flex gap-4">
           <li className="flex flex-col text-[13px]">
             <a href="#" className="text-black">
               Home

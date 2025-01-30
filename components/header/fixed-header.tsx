@@ -4,14 +4,14 @@
 
 import { cn } from "@/lib/utils"
 import { fadeInOut, slideUp } from "@/lib/animations"
-import { motion } from "motion/react"
-import { useState } from "react"
 import { headingNowTrial46Bold } from "@/lib/fonts"
+import { motion } from "motion/react"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
 import Facebook from "@/public/svg/facebook.svg"
 import Instagram from "@/public/svg/instagram.svg"
-import Youtube from "@/public/svg/youtube.svg"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Youtube from "@/public/svg/youtube.svg"
 
 type NavProps = {
   isOpen?: boolean
@@ -27,6 +27,7 @@ export function FixedHeader(props: NavProps) {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Writers", href: "/writers" },
     { name: "Songs", href: "/songs" },
   ]
@@ -73,7 +74,7 @@ export function FixedHeader(props: NavProps) {
       <motion.p
         className={cn(
           headingNowTrial46Bold.className,
-          "col-span-2 col-start-4 cursor-pointer justify-self-center overflow-hidden",
+          "col-span-2 col-start-4 cursor-pointer self-center justify-self-center overflow-hidden",
         )}
       >
         <motion.span className="block px-1 text-2xl" {...fadeInOut}>

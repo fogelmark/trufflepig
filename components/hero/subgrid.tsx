@@ -28,12 +28,12 @@ export function Subgrid() {
   return (
     <motion.div
       {...fadeInOut}
-      className="subgrid tracking-[-0.03em] row-start-5 grid grid-cols-[auto_1fr] grid-rows-1 items-center gap-4 self-end"
+      className="subgrid row-start-4 grid grid-cols-[auto_1fr_auto] grid-rows-[auto_auto_auto] items-center gap-x-2 self-end text-sm tracking-[-0.03em] text-black"
     >
-      <div className="col-start-1 flex items-center self-end capitalize text-sm">
+      <div className="col-start-1 row-start-3 flex items-center self-end capitalize">
         stockholm <span className="ml-2 uppercase">{time}</span>
       </div>
-      <div className="col-start-2 h-px self-center bg-gray-300" />
+      <div className="col-start-2 row-start-3 h-px self-center bg-gray-300" />
     </motion.div>
   )
 }

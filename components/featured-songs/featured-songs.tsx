@@ -31,7 +31,6 @@ export default function FeaturedSongs() {
       <div className="relative mx-auto mb-12 min-h-screen w-full bg-white px-10">
         <h2 className="text-6xl text-black">Songs</h2>
         <div className="grid grid-flow-row grid-cols-3 gap-x-6 gap-y-12 px-2 py-4">
-          {/* <SongCardRedo /> */}
           <div className="group grid h-fit">
             <div className="relative cursor-pointer">
               <Image
