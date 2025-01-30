@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div
-      className="relative h-[40vh] border-t-[1px] border-gray-300"
+      className="relative h-[40vh] border-t-[1px] border-gray-300 bg-white"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 grid h-[40vh] w-full grid-cols-8 grid-rows-8 items-center tracking-[-0.03em]">

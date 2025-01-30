@@ -37,7 +37,7 @@ export default function Intro() {
     <h1
       ref={container}
       className={cn(
-        "row-start-3 flex w-[60%] flex-wrap justify-center gap-x-2 justify-self-center text-center text-5xl font-medium uppercase tracking-[-0.03em] text-[hsl(0,3%,4%)]",
+        "row-start-2 flex w-[60%] flex-wrap justify-center gap-x-2 justify-self-center text-center text-5xl font-medium uppercase tracking-[-0.03em] text-[hsl(0,3%,4%)]",
       )}
     >
       {sentences.map((sentence, index) => (
