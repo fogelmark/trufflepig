@@ -30,7 +30,7 @@ export function Subgrid() {
       {...fadeInOut}
       className="subgrid row-start-4 grid grid-cols-[auto_1fr_auto] grid-rows-[auto_auto_auto] items-center gap-x-2 self-end text-sm tracking-[-0.03em] text-black"
     >
-      <div className="col-start-1 row-start-3 flex items-center self-end font-medium capitalize">
+      <div className="col-start-1 row-start-3 flex items-center self-end capitalize">
         stockholm <span className="ml-2 uppercase">{time}</span>
       </div>
       <div className="col-start-2 row-start-3 h-px self-center bg-gray-300" />
