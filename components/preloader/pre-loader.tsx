@@ -24,7 +24,7 @@ const curtain = {
 }
 
 interface PreLoaderProps {
-  handlePreloaderComplete: () => void
+  handlePreloaderComplete?: () => void
 }
 
 export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
@@ -34,7 +34,6 @@ export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
       initial="initial"
       animate="animate"
       exit="exit"
-      onAnimationComplete={() => handlePreloaderComplete()}
       className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
     />
   )

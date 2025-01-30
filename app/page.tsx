@@ -7,9 +7,7 @@ import { Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
-import Description from "@/components/description"
 import Lenis from "lenis"
-import Showcase from "@/components/showcase/showcase"
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,10 +20,10 @@ export default function Home() {
   })
 
   useEffect(() => {
-    if (isPreloaderComplete) {
-      setIsLoading(false)
-      return
-    }
+    // if (isPreloaderComplete) {
+    //   setIsLoading(false)
+    //   return
+    // }
 
     const lenis = new Lenis()
 
@@ -37,11 +35,12 @@ export default function Home() {
     window.scrollTo(0, 0)
     requestAnimationFrame(raf)
 
-    setTimeout(() => {
-      setIsPreloaderComplete(true)
-      setIsLoading(false)
-    }, 2500)
-  }, [isPreloaderComplete, setIsPreloaderComplete])
+    // setTimeout(() => {
+    //   setIsPreloaderComplete(true)
+    //   setIsLoading(false)
+    // }, 2500)
+  }, [])
+  // }, [isPreloaderComplete, setIsPreloaderComplete])
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
@@ -49,21 +48,18 @@ export default function Home() {
   })
 
   return (
-    // <main ref={container} className="relative min-h-screen">
     <main ref={container} className="relative min-h-screen">
       <AnimatePresence mode="wait">
-        {!isPreloaderComplete && isLoading && (
-          <PreLoader
-            handlePreloaderComplete={() => setIsPreloaderComplete(true)}
-          />
-        )}
+        {/* {isLoading && (
+        )} */}
+        <PreLoader
+          handlePreloaderComplete={() => setIsPreloaderComplete(true)}
+        />
       </AnimatePresence>
       <Hero
         isPreloaderComplete={isPreloaderComplete}
         scrollYProgress={scrollYProgress}
       />
-      {/* <Description />
-      <Showcase /> */}
     </main>
   )
 }

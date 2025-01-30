@@ -4,7 +4,6 @@ import { MotionValue } from "motion/react"
 import { Subgrid } from "./subgrid"
 import Intro from "./intro"
 
-
 interface HeroProps {
   scrollYProgress: MotionValue<number>
   isPreloaderComplete: boolean
@@ -13,12 +12,8 @@ interface HeroProps {
 export function Hero({ isPreloaderComplete }: HeroProps) {
   return (
     <div className="relative px-10">
-      <div className="grid fixed top-0 h-screen grid-rows-3 grid-cols-1 items-center py-4">
-        {isPreloaderComplete && (
-          <>
-            <Intro />
-          </>
-        )}
+      <div className="fixed top-0 grid h-screen grid-cols-1 grid-rows-3 items-center py-4">
+        <Intro />
         <Subgrid />
       </div>
     </div>
