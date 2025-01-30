@@ -10,6 +10,7 @@ import Image from "next/image"
 import Lenis from "lenis"
 import Soundcloud from "@/public/svg/soundcloud.svg"
 import Spotify from "@/public/svg/spotify.svg"
+import { fadeInOut } from "@/lib/animations"
 
 declare global {
   interface Window {
@@ -65,7 +66,7 @@ export default function Page() {
   )
 
   return (
-    <div className="mb-10 mt-36 grid min-h-screen grid-cols-2 bg-white px-20 tracking-[-0.03em]">
+    <motion.div className="mb-10 mt-36 grid min-h-screen grid-cols-2 bg-white px-20 tracking-[-0.03em]" {...fadeInOut}>
       <ul ref={container} className="grid gap-2">
         {songs.flatMap((song, songIndex) =>
           song.track.map((track, index) => {
@@ -148,6 +149,6 @@ export default function Page() {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   )
 }
