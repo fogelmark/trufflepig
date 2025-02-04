@@ -1,28 +1,32 @@
 import {
+  animate,
   motion,
   useInView,
   useMotionValue,
-  useSpring,
   useTransform,
 } from "motion/react"
 import { container, item } from "./animation"
 import { formatCount, maxCount } from "./stream-count"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export function StreamAmount() {
   const cell = useRef(null)
   const isInView = useInView(cell, { amount: 1, once: true })
 
-  const countValue = useMotionValue(0)
-  const springValue = useSpring(countValue, { stiffness: 70, damping: 40 })
-  const formattedCount = useTransform(springValue, (value) =>
+  const count = useMotionValue(0)
+  useEffect(() => {
+    const controls = animate(count, maxCount, { duration: 3.5 })
+    return () => controls.stop()
+  }, [isInView])
+
+  const formattedCount = useTransform(count, (value) =>
     formatCount(Math.floor(value)),
   )
 
   setTimeout(() => {
     if (isInView) {
-      countValue.set(0)
-      countValue.set(maxCount)
+      count.set(0)
+      count.set(maxCount)
     }
   }, 800)
 
