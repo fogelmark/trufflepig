@@ -8,16 +8,30 @@ import useLenis from "@/lib/hooks/useLenis"
 import { cn } from "@/lib/utils"
 import { fira_code } from "@/lib/fonts"
 
+const curtain = {
+  initial: {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+  },
+  animate: (i: number) => ({
+    clipPath: [
+      "polygon(0 95%, 100% 95%, 100% 100%, 0 100%)",
+    ],
+    transition: {
+      duration: 1.5,
+      ease: [0.215, 0.61, 0.355, 1],
+      delay: 0.1 * i,
+    },
+  }),
+}
+
 export default function Page() {
   useLenis()
 
   return (
     <motion.div
-      // className="mx-auto grid min-h-screen grid-cols-2 grid-rows-[auto_1fr] gap-x-2 gap-y-10 px-4 pt-36 tracking-[-0.03em] text-black 2xl:w-1/2"
-      className="mx-auto flex min-h-screen grid-cols-2 grid-rows-[auto_1fr] gap-x-2 gap-y-10 px-4 mt-36 mb-10 text-black 2xl:w-1/2"
+      className="mx-auto mb-10 mt-36 flex min-h-screen grid-cols-2 auto-rows-min gap-x-2 gap-y-10 px-4 text-black 2xl:w-1/2"
       {...fadeInOut}
     >
-      {/* <h2 className="text-4xl font-medium">Writers</h2> */}
       {writers.map((writer, index) => (
         <section
           key={index}
@@ -25,7 +39,15 @@ export default function Page() {
             "row-start-2": index === 0 || index === 1,
           })}
         >
-          <motion.div className="w-full">
+          <motion.div className="relative w-full">
+            <motion.div
+              className="absolute -inset-[1px] bg-white"
+              variants={curtain}
+              custom={index}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            />
             <Image
               src={writer.image}
               alt={writer.name}
@@ -36,7 +58,14 @@ export default function Page() {
           </motion.div>
           <div className="flex items-center justify-between">
             <h2 className="text-4xl font-medium">{writer.name}</h2>
-            <p className={cn("text-xs uppercase text-gray-500", fira_code.className)}>{writer.role}</p>
+            <p
+              className={cn(
+                "text-xs uppercase text-gray-500",
+                fira_code.className,
+              )}
+            >
+              {writer.role}
+            </p>
           </div>
           <p className="text-sm">{text}</p>
         </section>
