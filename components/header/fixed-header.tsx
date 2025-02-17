@@ -88,7 +88,7 @@ export function FixedHeader(props: NavProps) {
       >
         {!isOpen && (
           <ul className={cn("flex items-center justify-center")}>
-            {socials.map((item, index) => (
+            {/* {socials.map((item, index) => (
               <motion.li
                 key={index}
                 onMouseEnter={() => setSocialIndex(index)}
@@ -105,7 +105,8 @@ export function FixedHeader(props: NavProps) {
                   {<item.Component alt={item.alt} />}
                 </motion.span>
               </motion.li>
-            ))}
+            ))} */}
+            <a href="#" className={classes.li}>instagram</a>
           </ul>
         )}
       </motion.nav>

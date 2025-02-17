@@ -3,17 +3,17 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { fadeInOut } from "@/lib/animations"
 import { fira_code } from "@/lib/fonts"
 import { motion } from "motion/react"
 import { songs } from "@/lib/songs"
-import { useEffect, useRef, useState } from "react"
+import { StreamAmount } from "@/components/featured-songs/stream-amount/stream-amount"
+import { useEffect } from "react"
 import Apple from "@/public/svg/apple.svg"
-import Image from "next/image"
-import Lenis from "lenis"
 import Soundcloud from "@/public/svg/soundcloud.svg"
 import Spotify from "@/public/svg/spotify.svg"
-import { fadeInOut } from "@/lib/animations"
-import { StreamAmount } from "@/components/featured-songs/stream-amount/stream-amount"
+import Image from "next/image"
+import Lenis from "lenis"
 
 declare global {
   interface Window {
@@ -77,13 +77,13 @@ export default function Page() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Spotify className="h-6 w-6" aria-label="Spotify" />
+                      <Spotify className="size-7" aria-label="Spotify" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                      <Apple className="h-6 w-6" aria-label="Apple Music" />
+                      <Apple className="size-7" aria-label="Apple Music" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                      <Soundcloud className="h-6 w-6" aria-label="Soundcloud" />
+                      <Soundcloud className="size-7" aria-label="Soundcloud" />
                     </a>
                   </div>
                 </div>
