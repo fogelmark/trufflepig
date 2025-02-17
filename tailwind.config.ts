@@ -28,6 +28,7 @@ const config: Config = {
         "forest": "url(/images/cartoon-forest.jpg)",
         "10": "url(/images/10.jpg)",
         "abstract-paint": "url(/images/abstract-paint.jpg)",
+        "abstract-green": "url(/images/abstract-green.jpg)",
       },
     },
   },

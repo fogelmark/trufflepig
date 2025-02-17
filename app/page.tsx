@@ -55,11 +55,11 @@ export default function Home() {
         <PreLoader
           handlePreloaderComplete={() => setIsPreloaderComplete(true)}
         />
+        <Hero
+          isPreloaderComplete={isPreloaderComplete}
+          scrollYProgress={scrollYProgress}
+        />
       </AnimatePresence>
-      <Hero
-        isPreloaderComplete={isPreloaderComplete}
-        scrollYProgress={scrollYProgress}
-      />
     </main>
   )
 }

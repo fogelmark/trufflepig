@@ -19,7 +19,9 @@ export default function RootLayout({
       lang="en"
       className="scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-300"
     >
-      <body className={`${roboto.className} antialiased selection:bg-black selection:text-white`}>
+      <body
+        className={`${roboto.className} antialiased selection:bg-black selection:text-white`}
+      >
         <OpenContextProvider>
           <Header />
           {children}

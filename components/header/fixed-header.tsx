@@ -3,15 +3,12 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { fadeInOut, slideUp } from "@/lib/animations"
+import { fadeInOut } from "@/lib/animations"
 import { headingNowTrial46Bold } from "@/lib/fonts"
 import { motion } from "motion/react"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import Facebook from "@/public/svg/facebook.svg"
-import Instagram from "@/public/svg/instagram.svg"
 import Link from "next/link"
-import Youtube from "@/public/svg/youtube.svg"
 
 type NavProps = {
   isOpen?: boolean
@@ -22,7 +19,6 @@ type NavProps = {
 export function FixedHeader(props: NavProps) {
   const { isOpen } = props
   const [itemIndex, setItemIndex] = useState<number | null>(null)
-  const [socialIndex, setSocialIndex] = useState<number | null>(null)
   const pathname = usePathname()
 
   const navItems = [
@@ -30,11 +26,6 @@ export function FixedHeader(props: NavProps) {
     { name: "About", href: "/about" },
     { name: "Writers", href: "/writers" },
     { name: "Songs", href: "/songs" },
-  ]
-  const socials = [
-    { Component: Instagram, alt: "Instagram" },
-    // { Component: Youtube, alt: "Youtube" },
-    // { Component: Facebook, alt: "Facebook" },
   ]
 
   return (
@@ -47,22 +38,25 @@ export function FixedHeader(props: NavProps) {
                 key={index}
                 onMouseEnter={() => setItemIndex(index)}
                 onMouseLeave={() => setItemIndex(null)}
-                initial={{ opacity: 1 }}
-                animate={{
-                  opacity: itemIndex !== null && itemIndex !== index ? 0.5 : 1,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 className={cn(
                   classes.li,
-                  "cursor-pointer overflow-hidden px-2 max-md:hidden",
-                  pathname === item.href
-                    ? "underline underline-offset-2"
-                    : "text-gray-500",
+                  "relative cursor-pointer overflow-hidden px-2 max-md:hidden",
                 )}
               >
                 <Link href={item.href}>
-                  <motion.span className="block" {...fadeInOut}>
+                  <motion.span className="relative block" {...fadeInOut}>
                     {item.name}
+                    <motion.span
+                      className="absolute bottom-0 left-0 h-[2px] w-full bg-black"
+                      initial={{ scaleX: 0 }}
+                      animate={{
+                        scaleX:
+                          pathname === item.href || itemIndex === index ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      style={{ transformOrigin: "center" }}
+                    />
                   </motion.span>
                 </Link>
               </motion.li>
@@ -77,9 +71,11 @@ export function FixedHeader(props: NavProps) {
           "col-span-2 col-start-4 cursor-pointer self-center justify-self-center overflow-hidden",
         )}
       >
-        <motion.span className="block px-1 text-2xl" {...fadeInOut}>
-          punch publishing
-        </motion.span>
+        <Link href="/">
+          <motion.span className="block px-1 text-2xl" {...fadeInOut}>
+            punch publishing
+          </motion.span>
+        </Link>
       </motion.p>
 
       <motion.nav
@@ -88,25 +84,11 @@ export function FixedHeader(props: NavProps) {
       >
         {!isOpen && (
           <ul className={cn("flex items-center justify-center")}>
-            {/* {socials.map((item, index) => (
-              <motion.li
-                key={index}
-                onMouseEnter={() => setSocialIndex(index)}
-                onMouseLeave={() => setSocialIndex(null)}
-                initial={{ opacity: 1 }}
-                animate={{
-                  opacity:
-                    socialIndex !== null && socialIndex !== index ? 0.5 : 1,
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className={cn(classes.li, "overflow-hidden px-2 max-md:hidden")}
-              >
-                <motion.span className="block" {...fadeInOut}>
-                  {<item.Component alt={item.alt} />}
-                </motion.span>
-              </motion.li>
-            ))} */}
-            <a href="#" className={classes.li}>instagram</a>
+            <li>
+              <a href="#" className={classes.li}>
+                instagram
+              </a>
+            </li>
           </ul>
         )}
       </motion.nav>
