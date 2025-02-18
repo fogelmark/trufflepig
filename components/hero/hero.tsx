@@ -19,11 +19,11 @@ export function Hero({ isPreloaderComplete }: HeroProps) {
   return (
     <div className="relative">
       <motion.div
-        className="fixed top-0 grid max-sm:h-lvh min-h-screen w-full grid-cols-2 grid-rows-3 items-center px-10 py-4 max-sm:px-4"
+        className="max-sm:relative fixed top-0 grid max-sm:min-h-dvh min-h-screen w-full grid-cols-2 grid-rows-3 items-center px-10 py-4 max-sm:px-4"
         {...fadeInOut}
       >
         <Intro />
-        <Logo className="fixed left-1/2 top-1/2 max-sm:size-[90%] size-1/2 max-sm:opacity-10 opacity-50 -translate-x-1/2 -translate-y-1/2 transform 2xl:size-[500px]" />
+        <Logo className="absolute left-1/2 top-1/2 max-sm:size-[90%] size-1/2 max-sm:opacity-5 opacity-50 -translate-x-1/2 -translate-y-1/2 transform 2xl:size-[500px]" />
         <Subgrid />
       </motion.div>
     </div>

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -30,11 +31,21 @@ const config: Config = {
         "abstract-paint": "url(/images/abstract-paint.jpg)",
         "abstract-green": "url(/images/abstract-green.jpg)",
       },
+      clipPath: {
+        "footer": "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
+      }
     },
   },
   plugins: [
     require('tailwind-scrollbar'),
     require('tailwind-scrollbar-hide'),
+    plugin(function({ addUtilities }) {
+      addUtilities({
+        '.clip-footer': {
+          clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
+        },
+      });
+    }),
   ],
 }
 export default config
