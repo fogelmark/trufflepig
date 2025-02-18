@@ -29,7 +29,7 @@ export const itemVariants = {
     },
   },
   closed: {
-    y: 50,
+    y: "100%",
     opacity: 0,
     transition: {
       y: { stiffness: 1000 },
