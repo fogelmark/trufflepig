@@ -10,13 +10,13 @@ export const slideUp = {
   }
 
   export const slideUpDelayed = {
-    open: {
+    animate: {
       y: 0,
+      opacity: 1,
       transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1], delay: 0.9 },
     },
-    closed: {
-      y: 25,
-      transition: { duration: 1, ease: "easeInOut" },
+    initial: {
+      y: "100%", opacity: 0    
     },
   }
 

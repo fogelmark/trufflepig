@@ -1,4 +1,4 @@
-import { Archivo, Fira_Code, Archivo_Black, Archivo_Narrow, Arimo, Fjalla_One, Inter, Lora, Montserrat, Playfair_Display, Poppins, Roboto, Yantramanav } from "next/font/google"
+import { Archivo, Fira_Code, Archivo_Black, Archivo_Narrow, Arimo, Fjalla_One, Inter, Lora, Montserrat, Playfair_Display, Poppins, Roboto, Yantramanav, DM_Serif_Text } from "next/font/google"
 import local from "next/font/local"
 
 export const headingNowTrial46Bold = local({
@@ -72,5 +72,10 @@ export const yamata = Yantramanav({
 
 export const roboto = Roboto({
   weight: ["400", "500", "700"],
+  subsets: ["latin"],
+})
+
+export const dm_serif_text = DM_Serif_Text({
+  weight: ["400"],
   subsets: ["latin"],
 })

@@ -15,7 +15,7 @@ export function MenuButton(props: MenuButtonProps) {
   return (
     <motion.div
       {...fadeInOut}
-      className={cn("z-10 hidden max-md:block", { "!text-black": isOpen })}
+      className={cn("z-10 col-start-1 row-start-1 hidden max-sm:block", { "!text-black": isOpen })}
     >
       <Hamburger toggled={isOpen} toggle={setOpen} />
     </motion.div>

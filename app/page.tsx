@@ -10,7 +10,6 @@ import { useOpenContext } from "@/lib/hooks/use-context"
 import Lenis from "lenis"
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
   const container = useRef(null)
   const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
 
@@ -20,10 +19,6 @@ export default function Home() {
   })
 
   useEffect(() => {
-    // if (isPreloaderComplete) {
-    //   setIsLoading(false)
-    //   return
-    // }
 
     const lenis = new Lenis()
 
@@ -35,12 +30,7 @@ export default function Home() {
     window.scrollTo(0, 0)
     requestAnimationFrame(raf)
 
-    // setTimeout(() => {
-    //   setIsPreloaderComplete(true)
-    //   setIsLoading(false)
-    // }, 2500)
   }, [])
-  // }, [isPreloaderComplete, setIsPreloaderComplete])
 
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)", {
     initializeWithValue: false,
@@ -50,8 +40,6 @@ export default function Home() {
   return (
     <main ref={container} className="relative min-h-screen">
       <AnimatePresence mode="wait">
-        {/* {isLoading && (
-        )} */}
         <PreLoader
           handlePreloaderComplete={() => setIsPreloaderComplete(true)}
         />

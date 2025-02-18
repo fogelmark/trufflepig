@@ -3,30 +3,24 @@
 import { drawerVariants, itemVariants } from "@/lib/variants"
 import { motion } from "motion/react"
 import { useEffect } from "react"
-import Instagram from "@/public/svg/instagram.svg"
-import Facebook from "@/public/svg/facebook.svg"
-import Youtube from "@/public/svg/youtube.svg"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 type DrawerProps = {
   isOpen: boolean
+  setOpen: (isOpen: boolean) => void
 }
 
 const menuItems = [
-  { text: "About" },
-  { text: "Songs" },
-  { text: "Contact" },
-  {
-    text: "Social Media",
-    icons: [
-      { Component: Instagram, alt: "Instagram" },
-      { Component: Youtube, alt: "Instagram" },
-      { Component: Facebook, alt: "Instagram" },
-    ],
-  },
+  { text: "home", link: "/" },
+  { text: "about", link: "/about" },
+  { text: "writers", link: "/writers" },
+  { text: "songs", link: "/songs" },
+  { text: "instagram", link: "/" },
 ]
 
 export function Drawer(props: DrawerProps) {
-  const { isOpen } = props
+  const { isOpen, setOpen } = props
 
   useEffect(() => {
     if (isOpen) {
@@ -44,23 +38,17 @@ export function Drawer(props: DrawerProps) {
       animate={isOpen ? "open" : "closed"}
       variants={drawerVariants}
       initial="closed"
-      className="fixed inset-0 flex flex-col items-center justify-center gap-4"
+      className={cn("fixed inset-0 flex flex-col items-center justify-center gap-4 bg-red-primary capitalize",)}
     >
       {menuItems.map((item, index) => (
         <motion.li
           key={index}
           variants={itemVariants}
-          className="flex items-center gap-2 text-4xl lowercase"
+          className="flex gap-2 text-4xl"
         >
-          {item.icons ? (
-            <div className="flex gap-4">
-              {item.icons.map((icon, index) => (
-                <div key={index}>{<icon.Component />}</div>
-              ))}
-            </div>
-          ) : (
-            item.text
-          )}
+          <Link href={item.link} onClick={() => setOpen(false)}>
+          {item.text}
+          </Link>
         </motion.li>
       ))}
     </motion.ul>

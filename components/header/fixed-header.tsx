@@ -30,7 +30,7 @@ export function FixedHeader(props: NavProps) {
 
   return (
     <>
-      <motion.nav className="col-span-2 self-center tracking-[-0.03em]">
+      <motion.nav className="self-center max-sm:hidden tracking-[-0.03em]">
         {!isOpen && (
           <ul className={cn("ml-4 flex items-center")}>
             {navItems.map((item, index) => (
@@ -41,7 +41,7 @@ export function FixedHeader(props: NavProps) {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className={cn(
                   classes.li,
-                  "relative cursor-pointer overflow-hidden px-2 max-md:hidden",
+                  "relative cursor-pointer overflow-hidden px-2",
                 )}
               >
                 <Link href={item.href}>
@@ -68,7 +68,7 @@ export function FixedHeader(props: NavProps) {
       <motion.p
         className={cn(
           headingNowTrial46Bold.className,
-          "col-span-2 col-start-4 cursor-pointer self-center justify-self-center overflow-hidden",
+          "cursor-pointer self-center justify-self-center overflow-hidden",
         )}
       >
         <Link href="/">
@@ -79,7 +79,7 @@ export function FixedHeader(props: NavProps) {
       </motion.p>
 
       <motion.nav
-        className="col-span-2 col-start-7 mr-4 cursor-pointer self-center justify-self-end"
+        className="mr-4 max-sm:hidden cursor-pointer self-center justify-self-end"
         {...fadeInOut}
       >
         {!isOpen && (

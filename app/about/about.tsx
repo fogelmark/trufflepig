@@ -2,6 +2,8 @@
 
 "use client"
 
+import { slideUpDelayed } from "@/components/hero/animation"
+import { dm_serif_text } from "@/lib/fonts"
 import useLenis from "@/lib/hooks/useLenis"
 import { cn } from "@/lib/utils"
 import { motion, useInView } from "motion/react"
@@ -14,7 +16,7 @@ export default function About() {
   useLenis()
   const description = useRef(null)
   const isInView = useInView(description, { once: true, amount: 1 })
-  const phrase = paragraph.split(" ")
+  const phrase_1 = paragraph.split(" ")
 
   const slideDown = {
     initial: {
@@ -36,17 +38,17 @@ export default function About() {
 
   return (
     <motion.div
-      className="relative flex h-screen flex-col items-center"
+      className="relative grid min-h-screen place-content-center gap-10"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
     >
-      <div className="flex h-screen flex-grow items-center justify-center bg-white">
+      <div className="flex items-center justify-center bg-white max-sm:items-center">
         <p
           ref={description}
           className={cn(
-            "flex w-1/2 flex-wrap items-center justify-center gap-x-2 text-3xl tracking-[-0.03em] text-[hsl(0,3%,4%)]",
+            "flex w-[60%] flex-wrap items-center justify-center gap-x-2 text-4xl tracking-[-0.03em] text-[hsl(0,3%,4%)] max-sm:w-full max-sm:justify-center max-sm:px-4 max-sm:text-2xl",
           )}
         >
-          {phrase.map((word, index) => (
+          {phrase_1.map((word, index) => (
             <span
               key={index}
               className="inline-flex overflow-hidden leading-tight"
@@ -64,6 +66,16 @@ export default function About() {
           ))}
         </p>
       </div>
+      <motion.a
+        href="mailto:info@punchpublishing.com"
+        className="text-[13px] justify-self-center"
+        variants={slideUpDelayed}
+        initial="initial"
+        animate="animate"
+      >
+        info@punchpublishing.com
+      </motion.a>
     </motion.div>
   )
 }
+

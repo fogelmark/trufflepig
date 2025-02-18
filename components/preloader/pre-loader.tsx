@@ -16,7 +16,7 @@ const curtain = {
       "polygon(0 0, 100% 0, 100% 0%, 0 0%)",
     ],
     transition: {
-      duration: 1,
+      duration: 1.5,
       ease: [0.215, 0.61, 0.355, 1],
       times: [0, 0.2, 0.8, 1],
     },
@@ -34,7 +34,7 @@ export function PreLoader({ handlePreloaderComplete }: PreLoaderProps) {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary"
+      className="fixed inset-0 z-[90] flex h-full w-full items-center justify-center bg-gray-primary max-sm:hidden"
     />
   )
 }

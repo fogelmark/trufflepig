@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {
   animate,
   motion,
@@ -8,6 +10,8 @@ import {
 import { container, item } from "./animation"
 import { formatCount, maxCount } from "./stream-count"
 import { useEffect, useRef } from "react"
+import { dm_serif_text } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 
 export function StreamAmount() {
   const cell = useRef(null)
@@ -36,18 +40,20 @@ export function StreamAmount() {
       initial="hidden"
       animate={isInView ? "show" : "hidden"}
       ref={cell}
-      className="col-start-1 row-start-3 self-center text-start text-5xl uppercase text-black"
+      className={cn(
+        "col-start-1 row-start-3 self-center text-start text-5xl font-medium uppercase text-black",
+      )}
     >
       <motion.span className="inline-flex" variants={item}>
         <motion.span>{formattedCount}</motion.span>
         <span>+ </span>
       </motion.span>
       <br />
-      <motion.span className="inline-flex" variants={item}>
+      <motion.span className={cn("inline-flex", dm_serif_text.className,)} variants={item}>
         streams
       </motion.span>
       <br />
-      <motion.span className="inline-flex" variants={item}>
+      <motion.span className={cn("inline-flex", dm_serif_text.className,)} variants={item}>
         on Spotify
       </motion.span>
     </motion.p>

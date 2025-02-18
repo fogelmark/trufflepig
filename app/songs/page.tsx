@@ -36,10 +36,10 @@ export default function Page() {
 
   return (
     <motion.div
-      className="mb-10 mt-36 grid min-h-screen grid-cols-2 bg-white px-20 tracking-[-0.03em]"
+      className="mb-10 mt-36 grid min-h-screen max-lg:flex grid-cols-2 bg-white max-lg:px-4 px-20 tracking-[-0.03em]"
       {...fadeInOut}
     >
-      <ul className="grid gap-2">
+      <ul className="grid gap-2 w-full">
         {songs.flatMap((song) =>
           song.track.map(
             (
@@ -53,7 +53,7 @@ export default function Page() {
             ) => (
               <motion.li
                 key={`${song.id}-${index}`}
-                className="grid w-auto grid-cols-[auto_1fr] items-center gap-4"
+                className="grid w-auto grid-cols-[auto_1fr] items-center gap-4 max-sm:gap-0"
               >
                 {track.cover && (
                   <Image
@@ -63,7 +63,7 @@ export default function Page() {
                     height={80}
                   />
                 )}
-                <div className="grid h-full grid-cols-[1fr_auto] items-center border-b">
+                <div className="grid h-full grid-cols-[1fr_auto] max-lg:grid-cols-[1fr_min-content] max-lg:gap-4 items-center border-b">
                   <div className="pl-4">
                     <p className="font-semibold">{track.title}</p>
                     <p className="text-sm text-gray-500">
@@ -71,19 +71,19 @@ export default function Page() {
                       {track.featuring ? `, ${track.featuring}` : ""}
                     </p>
                   </div>
-                  <div className="flex justify-end space-x-2 pr-4">
+                  <div className="flex justify-end space-x-2 pr-4 max-sm:pr-0">
                     <a
                       href={track.spotify}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Spotify className="size-7" aria-label="Spotify" />
+                      <Spotify className="size-7 max-sm:size-5" aria-label="Spotify" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                      <Apple className="size-7" aria-label="Apple Music" />
+                      <Apple className="size-7 max-sm:size-5" aria-label="Apple Music" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                      <Soundcloud className="size-7" aria-label="Soundcloud" />
+                      <Soundcloud className="size-7 max-sm:size-5" aria-label="Soundcloud" />
                     </a>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function Page() {
           ),
         )}
       </ul>
-      <div className={cn("relative min-h-screen justify-self-center text-sm")}>
+      <div className={cn("relative min-h-screen max-lg:hidden justify-self-center text-sm")}>
         <div className="sticky top-[40vh]">
           <StreamAmount />
         </div>

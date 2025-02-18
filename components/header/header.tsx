@@ -7,13 +7,12 @@ import { FixedHeader } from "./fixed-header"
 import { motion } from "motion/react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 
 export function Header() {
-  const [isOpen, setOpen] = useState(false)
   const mediaQueryMatches = useMediaQuery("(min-width: 768px)")
-  const { isPreloaderComplete, setIsPreloaderComplete } = useOpenContext()
+  const { isOpen, setOpen, setIsPreloaderComplete } = useOpenContext()
   const pathname = usePathname()
 
   const isHomePage = pathname === "/"
@@ -31,12 +30,11 @@ export function Header() {
   return (
     <motion.header
       data-testid="header"
-      className="fixed top-0 z-10 grid w-full grid-cols-8 py-4 px-6 overflow-hidden transition-all duration-300 bg-white"
+      className="fixed top-0 z-10 grid w-full grid-cols-3 content-between overflow-hidden bg-white p-4 transition-all duration-300 max-sm:grid-cols-[20%_60%_20%] max-sm:p-1"
     >
-      {/* {isPreloaderComplete && <FixedHeader />} */}
       <FixedHeader />
-      {/* <MenuButton isOpen={isOpen} setOpen={setOpen} />
-      <Drawer isOpen={isOpen} /> */}
+      <MenuButton isOpen={isOpen} setOpen={setOpen} />
+      <Drawer isOpen={isOpen} setOpen={setOpen} />
     </motion.header>
   )
 }
