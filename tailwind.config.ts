@@ -30,6 +30,7 @@ const config: Config = {
         "10": "url(/images/10.jpg)",
         "abstract-paint": "url(/images/abstract-paint.jpg)",
         "abstract-green": "url(/images/abstract-green.jpg)",
+        "logo": "url(/svg/logo_black.svg)",
       },
       clipPath: {
         "footer": "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",

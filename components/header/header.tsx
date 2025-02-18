@@ -17,15 +17,17 @@ export function Header() {
 
   const isHomePage = pathname === "/"
 
-  useEffect(() => {
-    if (!isHomePage) {
-      setIsPreloaderComplete(true)
-    }
-  }, [isHomePage, setIsPreloaderComplete])
+  // useEffect(() => {
+  //   if (!isHomePage) {
+  //     setIsPreloaderComplete(true)
+  //   }
+  // }, [isHomePage, setIsPreloaderComplete])
 
-  if (mediaQueryMatches && isOpen) {
-    setOpen(false)
-  }
+  // useEffect(() => {
+  //   if (mediaQueryMatches && isOpen) {
+  //     setOpen(false)
+  //   }
+  // }, [mediaQueryMatches, isOpen, setOpen])
 
   return (
     <motion.header

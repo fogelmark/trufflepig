@@ -3,7 +3,7 @@
 "use client"
 
 import { AnimatePresence, useScroll } from "motion/react"
-import { Hero, PreLoader } from "@/components"
+import { Drawer, Hero, PreLoader } from "@/components"
 import { useEffect, useRef, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { useOpenContext } from "@/lib/hooks/use-context"

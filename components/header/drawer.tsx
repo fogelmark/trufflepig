@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client"
 
 import { drawerVariants, itemVariants } from "@/lib/variants"
@@ -22,16 +24,16 @@ const menuItems = [
 export function Drawer(props: DrawerProps) {
   const { isOpen, setOpen } = props
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.position = "fixed"
-    } else {
-      document.body.style.position = ""
-    }
-    return () => {
-      document.body.style.position = ""
-    }
-  }, [isOpen])
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.position = "fixed"
+  //   } else {
+  //     document.body.style.position = ""
+  //   }
+  //   return () => {
+  //     document.body.style.position = ""
+  //   }
+  // }, [isOpen])
 
   return (
     <motion.ul
