@@ -9,7 +9,7 @@ export const drawerVariants = {
     },
   },
   closed: {
-    y: "100%",
+    y: "-100%",
     opacity: 1,
     transition: {
       duration: 0.3,
@@ -29,7 +29,7 @@ export const itemVariants = {
     },
   },
   closed: {
-    y: "100%",
+    y: "-100%",
     opacity: 0,
     transition: {
       y: { stiffness: 1000 },

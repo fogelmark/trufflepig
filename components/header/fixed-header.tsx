@@ -68,7 +68,7 @@ export function FixedHeader(props: NavProps) {
       <motion.p
         className={cn(
           headingNowTrial46Bold.className,
-          "cursor-pointer self-center justify-self-center overflow-hidden",
+          "cursor-pointer max-sm:col-start-2 self-center justify-self-center overflow-hidden",
         )}
       >
         <Link href="/">

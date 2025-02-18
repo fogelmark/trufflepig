@@ -15,9 +15,9 @@ export function MenuButton(props: MenuButtonProps) {
   return (
     <motion.div
       {...fadeInOut}
-      className={cn("z-10 col-start-1 row-start-1 hidden max-sm:block", { "!text-black": isOpen })}
+      className={cn("z-10 col-start-3 justify-self-center w-fit row-start-1 hidden max-sm:block", { "!text-black": isOpen })}
     >
-      <Hamburger toggled={isOpen} toggle={setOpen} />
+      <Hamburger size={25} toggled={isOpen} toggle={setOpen} />
     </motion.div>
   )
 }
