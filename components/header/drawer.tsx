@@ -40,7 +40,7 @@ export function Drawer(props: DrawerProps) {
       animate={isOpen ? "open" : "closed"}
       variants={drawerVariants}
       initial="closed"
-      className={cn("fixed inset-0 flex flex-col items-center justify-center gap-4 bg-red-primary capitalize",)}
+      className={cn("fixed top-0 left-0 size-full flex flex-col items-center justify-center gap-4 bg-red-primary capitalize",)}
     >
       {menuItems.map((item, index) => (
         <motion.li
