@@ -38,7 +38,7 @@ export default function Home() {
   })
 
   return (
-    <main ref={container} className="relative min-h-screen max-sm:min-h-lvh">
+    <main ref={container} className="relative min-h-screen max-sm:min-h-dvh">
       <AnimatePresence mode="wait">
         <PreLoader
           handlePreloaderComplete={() => setIsPreloaderComplete(true)}
