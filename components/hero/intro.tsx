@@ -1,7 +1,6 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { dm_serif_text } from "@/lib/fonts"
 import { motion } from "motion/react"
 import { useRef } from "react"
 
