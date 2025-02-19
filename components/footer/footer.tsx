@@ -15,9 +15,6 @@ export default function Footer() {
             <a href="#" className="text-black">
               Songs
             </a>
-            <a href="#" className="text-black">
-              Contact
-            </a>
           </li>
           <li className="flex flex-col text-[13px]">
             <a href="#" className="text-black">
@@ -30,7 +27,7 @@ export default function Footer() {
         </p>
         <a
           href="mailto:info@punchpublishing.com"
-          className="col-start-2 row-start-8 text-[13px] max-sm:row-start-7"
+          className="col-start-2 max-sm:col-start-3 row-start-8 text-[13px] max-sm:row-start-7"
         >
           info@punchpublishing.com
         </a>

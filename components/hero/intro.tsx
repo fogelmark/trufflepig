@@ -33,7 +33,6 @@ export default function Intro() {
       ref={container}
       className={cn(
         "row-start-3 col-start-2 max-sm:col-span-2 max-sm:row-start-2 flex w-full flex-col max-sm:items-center items-end max-sm:self-center self-end gap-x-2 text-3xl font-medium uppercase tracking-[-0.01em] text-[hsl(0,3%,4%)]",
-        dm_serif_text.className,
       )}
     >
       {sentences.map((sentence, index) => (

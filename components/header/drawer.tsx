@@ -46,7 +46,7 @@ export function Drawer(props: DrawerProps) {
         <motion.li
           key={index}
           variants={itemVariants}
-          className="flex gap-2 text-4xl"
+          className="flex gap-2 text-3xl"
         >
           <Link href={item.link} onClick={() => setOpen(false)}>
           {item.text}

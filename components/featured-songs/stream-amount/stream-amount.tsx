@@ -49,11 +49,11 @@ export function StreamAmount() {
         <span>+ </span>
       </motion.span>
       <br />
-      <motion.span className={cn("inline-flex", dm_serif_text.className,)} variants={item}>
+      <motion.span className={cn("inline-flex")} variants={item}>
         streams
       </motion.span>
       <br />
-      <motion.span className={cn("inline-flex", dm_serif_text.className,)} variants={item}>
+      <motion.span className={cn("inline-flex")} variants={item}>
         on Spotify
       </motion.span>
     </motion.p>

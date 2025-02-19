@@ -17,7 +17,7 @@ const curtain = {
   },
   animate: (i: number) => ({
     clipPath: [
-      "polygon(0 95%, 100% 95%, 100% 100%, 0 100%)",
+      "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)",
     ],
     transition: {
       duration: 1.5,
@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <motion.div
-      className="mx-auto mb-10 flex max-sm:flex-col mt-36 min-h-screen gap-x-2 gap-y-10 px-4 text-black 2xl:w-1/2"
+      className="mx-auto mb-10 flex max-sm:flex-col max-sm:mt-16 mt-36 min-h-screen gap-x-2 gap-y-10 px-4 text-black 2xl:w-1/2"
       {...fadeInOut}
     >
       {writers.map((writer, index) => (
@@ -60,7 +60,7 @@ export default function Page() {
             />
           </motion.div>
           <motion.div className="flex max-sm:flex-col max-sm:items-start max-sm:gap-2 items-center justify-between">
-            <h2 className="text-4xl font-medium">{writer.name}</h2>
+            <h2 className="text-4xl max-sm:text-3xl font-medium">{writer.name}</h2>
             <p
               className={cn(
                 "text-xs uppercase text-gray-500",

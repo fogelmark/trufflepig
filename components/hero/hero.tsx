@@ -17,7 +17,7 @@ export function Hero({ isPreloaderComplete }: HeroProps) {
   return (
     <div className="relative">
       <motion.div
-        className="fixed top-0 grid min-h-screen w-full grid-cols-2 grid-rows-3 items-center px-10 py-4 max-sm:relative max-sm:min-h-dvh max-sm:px-4"
+        className="fixed top-0 grid min-h-screen w-full grid-cols-2 grid-rows-3 items-center px-10 py-4 max-sm:relative max-sm:min-h-dvh max-sm:px-0"
         {...fadeInOut}
       >
         <Intro />
