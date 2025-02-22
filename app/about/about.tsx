@@ -43,7 +43,7 @@ export default function About() {
         <p
           ref={description}
           className={cn(
-            "flex w-[60%] flex-wrap items-center justify-center gap-x-2 text-4xl tracking-[-0.03em] text-[hsl(0,3%,4%)] max-sm:w-full max-sm:justify-start max-sm:px-4 max-sm:text-lg",
+            "flex w-[60%] flex-wrap items-center justify-center gap-x-2 text-4xl tracking-[-0.03em] text-[hsl(0,3%,4%)] max-sm:w-full max-sm:justify-center max-sm:px-4 max-sm:text-lg",
           )}
         >
           {phrase_1.map((word, index) => (

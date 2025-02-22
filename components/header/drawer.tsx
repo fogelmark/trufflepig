@@ -4,7 +4,6 @@
 
 import { drawerVariants, itemVariants } from "@/lib/variants"
 import { motion } from "motion/react"
-import { useEffect } from "react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 
@@ -18,7 +17,7 @@ const menuItems = [
   { text: "about", link: "/about" },
   { text: "writers", link: "/writers" },
   { text: "songs", link: "/songs" },
-  { text: "instagram", link: "/" },
+  { text: "instagram", link: "https://www.instagram.com/trufflepigpublishing/", target: "_blank" },
 ]
 
 export function Drawer(props: DrawerProps) {
@@ -48,7 +47,7 @@ export function Drawer(props: DrawerProps) {
           variants={itemVariants}
           className="flex gap-2 text-3xl"
         >
-          <Link href={item.link} onClick={() => setOpen(false)}>
+          <Link href={item.link} target={item.target} onClick={() => setOpen(false)}>
           {item.text}
           </Link>
         </motion.li>
