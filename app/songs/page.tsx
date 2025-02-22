@@ -45,7 +45,9 @@ export default function Page() {
               track: {
                 title: string
                 featuring?: string
-                spotify: string
+                spotify?: string
+                apple?: string
+                soundcloud?: string
                 cover?: string | null
               },
               index,
@@ -81,13 +83,13 @@ export default function Page() {
                         aria-label="Spotify"
                       />
                     </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href={track.apple} target="_blank" rel="noopener noreferrer">
                       <Apple
                         className="size-7 max-sm:size-5"
                         aria-label="Apple Music"
                       />
                     </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
+                    <a href={track.soundcloud} target="_blank" rel="noopener noreferrer">
                       <Soundcloud
                         className="size-7 max-sm:size-5"
                         aria-label="Soundcloud"
